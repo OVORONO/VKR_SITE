@@ -1,0 +1,416 @@
+body.modal-is-open {
+    overflow: hidden;
+}
+
+.heart.is-active {
+    color: #9f3324;
+}
+
+.modal-empty {
+    padding: 28px 12px;
+    text-align: center;
+    color: #5d5d5d;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.modal-empty--favorites {
+    grid-column: 1 / -1;
+}
+
+.favorite-btn {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+.logo,
+.nav,
+.order-btn,
+.hero-top h1,
+.hero-half p,
+.popular h2 {
+    font-family: "Montserrat Alternates", Arial, Helvetica, sans-serif;
+}
+.svg-icon {
+    width: 19px;      /* размер иконки */
+    height: 19px;
+    stroke: currentColor; /* цвет иконки берется от родителя */
+    stroke-width: 1.7;
+    fill: none;
+    display: block;
+}
+
+.site-modal {
+    width: min(620px, calc(100% - 36px));
+    padding: 0;
+    border: none;
+    border-radius: 28px;
+    background: transparent;
+    color: #1f1f1f;
+    margin: auto;
+    inset: 0;
+}
+
+.order-btn,
+.mobile-order-btn {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.header-icons {
+    position: relative;
+    z-index: 10001;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 240px;
+    max-width: min(320px, calc(100vw - 24px));
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+    z-index: 10000;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.search-dropdown:empty {
+    display: none;
+}
+
+.search-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    color: #1f1f1f;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1.3;
+    transition: background 0.15s ease;
+}
+
+.search-dropdown-item:hover,
+.search-dropdown-item:focus {
+    background: #eef3ff;
+}
+
+.search-dropdown-item img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: #f4f7ff;
+}
+
+.search-dropdown-item span {
+    flex: 1;
+    min-width: 0;
+}
+
+.search-highlight {
+    outline: 2px solid #5d93f2;
+    outline-offset: 3px;
+}
+
+.site-modal::backdrop {
+    background: rgba(26, 46, 86, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-inner {
+    position: relative;
+    width: 100%;
+    padding: 34px 36px 36px;
+    background: #ffffff;
+    border: 3px solid #5d93f2;
+    border-radius: 28px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+}
+
+.modal-inner h2 {
+    margin-bottom: 28px;
+    color: #1f1f1f;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #5d93f2;
+    color: #ffffff;
+    font-size: 25px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-product {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 18px;
+    align-items: center;
+    padding: 16px;
+    margin-bottom: 14px;
+    background: #e6ebff;
+    border-radius: 18px;
+}
+
+.modal-product-img {
+    width: 92px;
+    height: 92px;
+    background: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.modal-product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+}
+
+.modal-product-info h3 {
+    margin-bottom: 7px;
+    color: #26314a;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.modal-product-info p {
+    margin-bottom: 7px;
+    color: #26314a;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.modal-product-info span {
+    color: #4d5a7a;
+    font-size: 13px;
+}
+
+.modal-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 22px 0;
+    padding-top: 18px;
+    border-top: 1px solid #d4dcff;
+    font-size: 18px;
+}
+
+.modal-total strong {
+    color: #9f3324;
+}
+
+.modal-main-btn {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 24px;
+    background: #9f3324;
+    color: #ffffff;
+    border-radius: 22px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.modal-main-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: #26314a;
+}
+
+.modal-form input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid #d4dcff;
+    border-radius: 15px;
+    outline: none;
+    font-size: 14px;
+}
+
+.modal-form input:focus {
+    border-color: #5d93f2;
+}
+
+.modal-note {
+    margin-top: 18px;
+    color: #4d5a7a;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.placeholder-modal-text {
+    margin-bottom: 24px;
+    color: #4d5a7a;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.placeholder-modal .modal-main-btn {
+    margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+    .modal-inner {
+        padding: 28px 18px 24px;
+        border-radius: 22px;
+    }
+
+    .modal-inner h2 {
+        font-size: 24px;
+        margin-bottom: 22px;
+    }
+
+    .modal-product {
+        grid-template-columns: 76px 1fr;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .modal-product-img {
+        width: 76px;
+        height: 76px;
+    }
+
+    .modal-product-info h3 {
+        font-size: 14px;
+    }
+
+    .modal-product-info p,
+    .modal-product-info span {
+        font-size: 12px;
+    }
+}
+
+/* оборачиваем 3 колонки в отдельный flex-контейнер */
+.footer-right {
+    display: flex;
+    gap: 40px; /* расстояние между колонками */
+    margin-left: auto; /* сдвигаем вправо */
+}
+
+/* делаем колонки чуть уже */
+.footer-service,
+.footer-pages,
+.footer-social {
+    flex: 0 0 120px; /* фиксированная ширина, можно подогнать */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-social .social-icons {
+    display: flex;  
+    flex-direction: column; /* теперь сверху вниз */
+    gap: 10px; /* расстояние между иконками */
+    margin-top: 10px;
+}
+
+.footer-social .social-icons a img {
+    width: 28px; /* размер иконок */
+    height: 28px;
+}
+
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    padding: 42px 70px;
+    gap: 40px;
+}
+
+.footer-right {
+    display: flex;
+    gap: 40px;
+    margin-left: auto; /* сдвигает три колонки вправо */
+}
+
+.footer-column,
+.footer-social {
+    flex: 0 0 120px; /* ширина колонок, можно уменьшить */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-social .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.footer-social .social-icons a img {
+    width: 28px;
+    height: 28px;
+}
+
+
+.footer-right {
+    display: flex;
+    gap: 40px;
+    margin-left: auto; /* сдвигает три колонки вправо */
+}
+
+.footer-column,
+.footer-social {
+    flex: 0 0 120px; /* ширина колонок, можно уменьшить */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-social .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.footer-social .social-icons a img {
+    width: 28px;
+    height: 28px;
+}

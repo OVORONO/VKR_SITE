@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ростовская эмаль</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700;800;900&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="css1.css">
+    <link rel="stylesheet" href="modals.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+<input type="checkbox" id="cart-popup" class="modal-toggle">
+<input type="checkbox" id="favorites-popup" class="modal-toggle">
+<input type="checkbox" id="profile-popup" class="modal-toggle">
+
+    <!-- ХЕДЕР -->
+    <header class="header">
+        <input type="checkbox" id="menu-toggle" hidden>
+
+        <div class="header-top">
+
+            <a href="catalog.html" class="order-btn">Оформить заказ</a>
+
+            <a href="index.html" class="logo">
+                <img src="images/РостовскаяЭмаль.png" alt="Ростовская эмаль" class="logo-img" style="transform: scale(1.5);">
+            </a>
+
+
+<div class="header-icons">
+    <div class="search-box">
+        <span class="svg-icon" aria-hidden="true">
+            <svg viewBox="0 -2 24 24">
+                <circle cx="11" cy="11" r="6"></circle>
+                <path d="M16 16L21 21"></path>
+            </svg>
+        </span>
+        <input type="text" aria-label="Поиск">
+    </div>
+
+    <label for="cart-popup" class="icon-btn" aria-label="Корзина">
+        <svg class="svg-icon" viewBox="0 0 24 24">
+            <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+            <path d="M6 7L5.3 4H3"></path>
+            <circle cx="9" cy="20" r="1.2"></circle>
+            <circle cx="17" cy="20" r="1.2"></circle>
+        </svg>
+    </label>
+
+    <label for="favorites-popup" class="icon-btn" aria-label="Избранное">
+        <svg class="svg-icon" viewBox="0 0 24 24">
+            <path d="M12 20S4.5 15.5 4.5 9.5C4.5 6.8 6.2 5 8.4 5C10 5 11.2 5.9 12 7.1C12.8 5.9 14 5 15.6 5C17.8 5 19.5 6.8 19.5 9.5C19.5 15.5 12 20 12 20Z"></path>
+        </svg>
+    </label>
+
+    <label for="profile-popup" class="icon-btn" aria-label="Профиль">
+        <svg class="svg-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="3.2"></circle>
+            <path d="M5.5 20C6.4 16.8 8.8 15.2 12 15.2C15.2 15.2 17.6 16.8 18.5 20"></path>
+        </svg>
+    </label>
+</div>
+
+            <label for="menu-toggle" class="burger" aria-label="Открыть меню">☰</label>
+
+        </div>
+
+        <nav class="nav">
+            <a href="catalog.html">КАТАЛОГ</a>
+            <a href="services.html">УСЛУГИ</a>
+            <a href="about.html">О НАС</a>
+            <a href="contacts.html">КОНТАКТЫ</a>
+        </nav>
+
+        <nav class="mobile-nav">
+            <a href="catalog.html">КАТАЛОГ</a>
+            <a href="services.html">УСЛУГИ</a>
+            <a href="about.html">О НАС</a>
+            <a href="contacts.html">КОНТАКТЫ</a>
+            <a href="catalog.html" class="mobile-order-btn">Сделать заказ</a>
+        </nav>
+    </header>
+
+    <!-- ГЛАВНЫЙ БАННЕР -->
+    <main>
+
+        <section class="hero">
+            <div class="hero-single">
+                <img src="images/hero-hero.png" alt="Ростовская эмаль">
+            </div>
+        </section>
+
+        <!-- ПОПУЛЯРНЫЕ ТОВАРЫ -->
+        <section class="popular">
+            <h2>Популярные товары</h2>
+
+            <div class="products-grid">
+
+                <div class="product-card">
+                    <button class="heart">♡</button>
+                    <div class="product-image">
+                        <img src="images/product-1.png" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3>Брошь «перо павлина»</h3>
+                            <p>6 499 руб</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="heart">♡</button>
+                    <div class="product-image">
+                        <img src="images/product-2.png" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3>Кулон «Зимний рассвет»</h3>
+                            <p>5 999 руб</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>                    
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="heart">♡</button>
+                    <div class="product-image">
+                        <img src="images/product-3.png" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3>Брошь «Синяя ласточка»</h3>
+                            <p>7 499 руб</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="heart">♡</button>
+                    <div class="product-image">
+                        <img src="images/product-4.png" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3>Браслет «Цветочная миниатюра»</h3>
+                            <p>8 999 руб</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="heart">♡</button>
+                    <div class="product-image">
+                        <img src="images/product-5.png" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3>Сувенир «Подкова на счастье»</h3>
+                            <p>11 999 руб</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="heart">♡</button>
+                    <div class="product-image">
+                        <img src="images/product-6.png" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3>Серьги «Алые цветы»</h3>
+                            <p>6 999 руб</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="heart">♡</button>
+                    <div class="product-image">
+                        <img src="images/product-7.png" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3>Кулон «Северное сияние»</h3>
+                            <p>5 499 руб</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="heart">♡</button>
+                    <div class="product-image">
+                        <img src="images/product-8.png" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3>Серьги «Розовый мрамор»</h3>
+                            <p>6 499 руб</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <button class="heart">♡</button>
+                    <div class="product-image">
+                        <img src="images/product-9.png" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <div>
+                            <h3>Кулон «Мудрая сова»</h3>
+                            <p>7 999 руб</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ФУТЕР -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="images/logo-footer.png" alt="Логотип">
+                </div>
+                <p>© Все права защищены 2026 «Ростовская эмаль»</p>
+            </div>
+
+            <div class="footer-right"> <!-- Сюда оборачиваем три колонки -->
+                <div class="footer-column">
+                    <h4>О СЕРВИСЕ</h4>
+                    <a href="#">Cookies</a>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>СТРАНИЦЫ</h4>
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="services.html">Услуги</a>
+                    <a href="about.html">О нас</a>
+                    <a href="contacts.html">Контакты</a>
+                    <a href="#">Доставка</a>
+                    <a href="#">Возврат</a>
+                </div>
+
+                <div class="footer-social">
+
+                    <div class="social-icons">
+                        <a href="#"><img src="images/max-icon.png" alt="MAX"></a>
+                        <a href="https://vk.com/club238020078" target="_blank" rel="noopener noreferrer"><img src="images/vk-icon.png" alt="VK"></a>
+                        <a href="https://rutube.ru/channel/78386521/" target="_blank" rel="noopener noreferrer"><img src="images/rutube-icon.png" alt="Rutube"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<!-- МОДАЛЬНОЕ ОКНО: КОРЗИНА -->
+<div class="modal-layer modal-cart">
+    <label for="cart-popup" class="modal-backdrop"></label>
+
+    <section class="modal-window">
+        <label for="cart-popup" class="modal-close">×</label>
+
+        <h2>Корзина</h2>
+        <p class="modal-subtitle">Товары, которые вы выбрали для заказа</p>
+
+        <div class="modal-products" id="cart-items-list"></div>
+
+        <div class="modal-total">
+            <span>Итого:</span>
+            <strong id="cart-total-amount">0 руб</strong>
+        </div>
+
+        <div class="modal-actions">
+            <a href="#" class="modal-main-btn">Оформить заказ</a>
+            <label for="cart-popup" class="modal-light-btn">Продолжить покупки</label>
+        </div>
+    </section>
+</div>
+
+
+<!-- МОДАЛЬНОЕ ОКНО: ИЗБРАННОЕ -->
+<div class="modal-layer modal-favorites">
+    <label for="favorites-popup" class="modal-backdrop"></label>
+
+    <section class="modal-window">
+        <label for="favorites-popup" class="modal-close">×</label>
+
+        <h2>Избранное</h2>
+        <p class="modal-subtitle">Товары, которые вы сохранили</p>
+
+        <div class="favorites-grid" id="favorites-items-list"></div>
+    </section>
+</div>
+
+
+<!-- МОДАЛЬНОЕ ОКНО: ЛИЧНЫЙ КАБИНЕТ -->
+<div class="modal-layer modal-profile">
+    <label for="profile-popup" class="modal-backdrop"></label>
+
+    <section class="modal-window profile-window">
+        <label for="profile-popup" class="modal-close">×</label>
+
+        <h2>Личный кабинет</h2>
+        <p class="modal-subtitle">Войдите, чтобы отслеживать заказы и сохранять избранное</p>
+
+        <form class="profile-form">
+            <label>
+                Ваш E-mail
+                <input type="email" placeholder="email@finift.ru">
+            </label>
+
+            <label>
+                Пароль
+                <input type="password" placeholder="Введите пароль">
+            </label>
+
+            <button type="submit" class="modal-main-btn">Войти</button>
+        </form>
+
+        <div class="profile-links">
+            <a href="#">Зарегистрироваться</a>
+            <a href="#">Забыли пароль?</a>
+        </div>
+    </section>
+</div>    
+
+<dialog class="site-modal" id="cart-modal">
+    <div class="modal-inner">
+        <button class="modal-close" type="button" aria-label="Закрыть">×</button>
+
+        <h2>Корзина</h2>
+
+        <div class="modal-product">
+            <div class="modal-product-img">
+                <img src="images/productii-1.png" alt="Товар">
+            </div>
+
+            <div class="modal-product-info">
+                <h3>Брошь «Золотая птица»</h3>
+                <p>6 900 руб</p>
+                <span>Количество: 1</span>
+            </div>
+        </div>
+
+        <div class="modal-product">
+            <div class="modal-product-img">
+                <img src="images/productii-2.png" alt="Товар">
+            </div>
+
+            <div class="modal-product-info">
+                <h3>Подвеска-закладка «Синий цветок»</h3>
+                <p>5 600 руб</p>
+                <span>Количество: 1</span>
+            </div>
+        </div>
+
+        <div class="modal-total">
+            <span>Итого:</span>
+            <strong id="cart-total-amount">0 руб</strong>
+        </div>
+
+        <button class="modal-main-btn" type="button">Оформить заказ</button>
+    </div>
+</dialog>
+
+<dialog class="site-modal" id="favorites-modal">
+    <div class="modal-inner">
+        <button class="modal-close" type="button" aria-label="Закрыть">×</button>
+
+        <h2>Избранное</h2>
+
+        <div class="modal-product">
+            <div class="modal-product-img">
+                <img src="images/product-3.png" alt="Товар">
+            </div>
+
+            <div class="modal-product-info">
+                <h3>Брошь «Золотая птица»</h3>
+                <p>6 900 руб</p>
+                <span>Добавлено в избранное</span>
+            </div>
+        </div>
+
+        <div class="modal-product">
+            <div class="modal-product-img">
+                <img src="images/product-4.png" alt="Товар">
+            </div>
+
+            <div class="modal-product-info">
+                <h3>Подвеска-закладка «Синий цветок»</h3>
+                <p>5 600 руб</p>
+                <span>Добавлено в избранное</span>
+            </div>
+        </div>
+
+        <button class="modal-main-btn" type="button">Перейти к покупкам</button>
+    </div>
+</dialog>
+
+<dialog class="site-modal" id="account-modal">
+    <div class="modal-inner">
+        <button class="modal-close" type="button" aria-label="Закрыть">×</button>
+
+        <h2>Личный кабинет</h2>
+
+        <form class="modal-form">
+            <label>
+                Ваш E-mail
+                <input type="email" placeholder="email@example.ru">
+            </label>
+
+            <label>
+                Пароль
+                <input type="password" placeholder="Введите пароль">
+            </label>
+
+            <button class="modal-main-btn" type="button">Войти</button>
+        </form>
+
+        <p class="modal-note">
+            Нет аккаунта? Зарегистрируйтесь, чтобы сохранять заказы и избранные товары.
+        </p>
+    </div>
+</dialog>
+
+<script src="cart-favorites.js"></script>
+<script src="search.js"></script>
+<script src="placeholder-links.js"></script>
+
+<script>
+    const modalButtons = document.querySelectorAll('.js-open-modal');
+    const modals = document.querySelectorAll('.site-modal');
+
+    modalButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const modal = document.getElementById(button.dataset.modal);
+
+            if (modal) {
+                modal.showModal();
+                document.body.classList.add('modal-is-open');
+            }
+        });
+    });
+
+    modals.forEach((modal) => {
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.close();
+            }
+        });
+
+        modal.addEventListener('close', () => {
+            document.body.classList.remove('modal-is-open');
+        });
+    });
+
+    document.querySelectorAll('.modal-close').forEach((button) => {
+        button.addEventListener('click', () => {
+            button.closest('.site-modal').close();
+        });
+    });
+</script>
+
+</body>
+</html>
