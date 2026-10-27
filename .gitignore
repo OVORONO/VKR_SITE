@@ -1,2 +1,9 @@
 # Старая версия сайта и исходные картинки (~37 МБ)
 _archive/
+
+# Инструменты ИИ-ассистентов — к сайту не относятся
+.claude/*
+!.claude/launch.json
+.agents/
+.aider-desk/
+skills-lock.json
