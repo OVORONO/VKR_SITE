@@ -7,7 +7,7 @@ AddType application/manifest+json .webmanifest
 ErrorDocument 404 /404.html
 
 # Служебные папки не должны открываться из браузера
-RedirectMatch 404 ^/(partials|_archive|data)/
+RedirectMatch 404 ^/(partials|_archive|data|tools|docs)/
 RedirectMatch 404 ^/(build\.ps1|build\.cmd|README\.md)$
 
 # Перенаправление на HTTPS (включите после подключения SSL-сертификата)
