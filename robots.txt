@@ -6,4 +6,4 @@ Disallow: /data/
 Disallow: /_archive/
 Disallow: /*?
 
-Sitemap: https://rostovskaya-emal.ru/sitemap.xml
+Sitemap: https://ovorono.github.io/VKR_SITE/sitemap.xml

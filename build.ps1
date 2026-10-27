@@ -321,7 +321,11 @@ foreach ($file in $pageFiles) {
     $page = ''
     if ($html -match '<body[^>]*data-page="([\w-]+)"') { $page = $Matches[1] }
     # страница 404 открывается по любому адресу, поэтому ссылки в ней — от корня сайта
-    if ($page -eq '404') { $root = '/' }
+    # (на GitHub Pages корень сайта — папка репозитория, например /VKR_SITE/)
+    if ($page -eq '404') {
+        $root = ([Uri]$config['siteUrl']).AbsolutePath.TrimEnd('/') + '/'
+        $html = $html -replace '(<body[^>]*data-root=")[^"]*', "`${1}$root"
+    }
 
     $vars = $config.Clone()
     $vars['root'] = $root

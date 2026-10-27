@@ -2,7 +2,7 @@
     "name": "Ростовская эмаль — ростовская финифть ручной работы",
     "short_name": "Ростовская эмаль",
     "lang": "ru",
-    "start_url": "/",
+    "start_url": "./",
     "display": "browser",
     "background_color": "#ffffff",
     "theme_color": "#3570d6",
