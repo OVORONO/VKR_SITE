@@ -1,0 +1,7 @@
+# В репозитории всегда LF: build.ps1 местами пишет CRLF, git выравнивает сам
+* text=auto eol=lf
+*.webp binary
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff2 binary
