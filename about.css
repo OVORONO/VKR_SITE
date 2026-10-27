@@ -1,0 +1,542 @@
+/* СТРАНИЦА «О НАС» */
+
+.about-page {
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.about-page img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ВЕРХНИЙ БЛОК ИЗ ТРЁХ ФОТО */
+
+.about-hero {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 58.3% 41.7%;
+    grid-auto-rows: minmax(0, 1fr); /* чтобы боковая колонка делилась на два равных прямоугольника */
+}
+
+.about-hero-side {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.about-hero-card {
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.about-hero-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.about-hero-card:hover img {
+    transform: scale(1.03);
+}
+
+.about-hero-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.22);
+}
+
+.about-hero-card span {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 51%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+    color: #ffffff;
+    font-family: var(--font-title);
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.65);
+}
+
+.about-hero-side .about-hero-card span {
+    font-size: 30px;
+}
+
+/* СИНИЙ БЛОК: О НАС + АССОРТИМЕНТ */
+
+.about-blue-section {
+    width: 100%;
+    min-height: 870px;
+    position: relative;
+    background: var(--blue);
+    color: #ffffff;
+    padding: 105px 135px 110px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 250px;
+    align-items: center;
+}
+
+.blue-text-block {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+}
+
+.blue-about-text {
+    align-self: start;
+}
+
+.blue-assortment-text {
+    align-self: end;
+    margin-top: 265px;
+}
+
+.blue-text-block h1,
+.blue-text-block h2 {
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 45px;
+}
+
+.blue-text-block h1::after,
+.blue-text-block h2::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 2px;
+    margin-top: 14px;
+    background: var(--gold);
+}
+
+.blue-text-block p {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.blue-text-block a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* БЕЛЫЕ СЕКЦИИ */
+
+.white-section {
+    position: relative;
+    background: #ffffff;
+    color: var(--ink);
+}
+
+.section-text {
+    position: relative;
+    z-index: 3;
+}
+
+.section-text h2 {
+    font-size: 29px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 34px;
+}
+
+.section-text p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.section-text a {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+/* ЧТО ТАКОЕ ФИНИФТЬ */
+
+.finift-section {
+    min-height: 735px;
+    padding: 105px 135px 95px;
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 125px;
+    align-items: start;
+}
+
+.finift-text {
+    max-width: 780px;
+}
+
+.image-shadow-wrap {
+    position: relative;
+    z-index: 3;
+    width: 610px;
+    max-width: 100%;
+    justify-self: end;
+    margin-top: -6px;
+}
+
+.image-shadow-wrap img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+}
+
+/* ТЕХНОЛОГИЯ */
+
+.technology-section {
+    min-height: 800px;
+    padding: 35px 135px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.technology-left,
+.technology-right {
+    position: relative;
+    z-index: 3;
+}
+
+.technology-left .section-text {
+    max-width: 600px;
+}
+
+.work-image {
+    width: 625px;
+    max-width: 100%;
+    margin-top: 50px;
+}
+
+.work-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 810 / 312;
+    object-fit: cover;
+    border-radius: 0 0 60px 0;
+}
+
+.work-image figcaption {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.work-btn {
+    min-width: 0;
+    margin-top: 26px;
+}
+
+.base-image {
+    width: 825px;
+    max-width: 100%;
+    height: 385px;
+    object-fit: cover;
+    border-radius: 0 0 0 105px;
+    margin-bottom: 68px;
+}
+
+.tech-right-text {
+    max-width: 710px;
+    margin-left: auto;
+}
+
+/* МАСТЕР-КЛАССЫ */
+
+.masterclass-section {
+    min-height: 760px;
+    padding: 210px 135px 150px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.master-text {
+    max-width: 680px;
+}
+
+.master-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 315px;
+    min-height: 52px;
+    margin-top: 40px;
+    padding: 0 36px;
+    background: var(--brick);
+    color: #ffffff;
+    border-radius: 26px;
+    font-size: 15px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.master-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+.master-image-wrap {
+    width: 625px;
+    max-width: 100%;
+    height: 305px;
+    overflow: hidden;
+    border-radius: 0 0 0 105px;
+    justify-self: end;
+}
+
+.master-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ДЕКОРАТИВНЫЕ ЛИНИИ */
+
+.wave {
+    position: absolute;
+    pointer-events: none;
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    z-index: 1;
+}
+
+.wave-white {
+    stroke: rgba(255, 255, 255, 0.55);
+}
+
+.wave-blue {
+    stroke: var(--blue-light);
+}
+
+.wave-blue-top {
+    width: 640px;
+    height: 365px;
+    top: 0;
+    right: -18px;
+}
+
+.wave-blue-left {
+    width: 650px;
+    height: 305px;
+    left: -15px;
+    bottom: -5px;
+}
+
+.wave-finift {
+    width: 1220px;
+    height: 465px;
+    left: 0;
+    bottom: 10px;
+}
+
+.wave-master {
+    width: calc(100% - 90px);
+    height: 275px;
+    left: 45px;
+    top: 0;
+}
+
+/* АДАПТИВ */
+
+@media (max-width: 1300px) {
+    .about-blue-section,
+    .finift-section,
+    .technology-section,
+    .masterclass-section {
+        padding-left: 75px;
+        padding-right: 75px;
+    }
+
+    .about-blue-section {
+        column-gap: 120px;
+    }
+
+    .technology-section {
+        gap: 60px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .about-hero-card span {
+        font-size: 25px;
+    }
+
+    .about-hero-side .about-hero-card span {
+        font-size: 24px;
+    }
+
+    .about-blue-section {
+        min-height: auto;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        column-gap: 70px;
+    }
+
+    .blue-assortment-text {
+        margin-top: 160px;
+    }
+
+    .finift-section,
+    .technology-section,
+    .masterclass-section {
+        gap: 60px;
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+
+    .image-shadow-wrap img {
+        height: 430px;
+    }
+
+    .base-image {
+        height: 320px;
+    }
+}
+
+@media (max-width: 800px) {
+    .about-hero {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+
+    .about-hero-main,
+    .about-hero-side .about-hero-card {
+        aspect-ratio: 16 / 10;
+    }
+
+    .about-hero-side {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-blue-section,
+    .finift-section,
+    .technology-section,
+    .masterclass-section {
+        display: block;
+        min-height: auto;
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .about-blue-section {
+        padding-top: 55px;
+        padding-bottom: 65px;
+    }
+
+    .blue-assortment-text {
+        margin-top: 48px;
+    }
+
+    .blue-text-block h1,
+    .blue-text-block h2,
+    .section-text h2 {
+        font-size: 26px;
+        margin-bottom: 24px;
+    }
+
+    .blue-text-block p,
+    .section-text p {
+        font-size: 15px;
+    }
+
+    .about-page .wave {
+        display: none;
+    }
+
+    .finift-section {
+        padding-top: 55px;
+        padding-bottom: 60px;
+    }
+
+    .image-shadow-wrap {
+        width: 100%;
+        margin-top: 28px;
+    }
+
+    .image-shadow-wrap img {
+        height: clamp(220px, 60vw, 380px);
+    }
+
+    .technology-section {
+        padding-top: 10px;
+        padding-bottom: 70px;
+    }
+
+    /* фото показываем целиком, без обрезки справа */
+    .work-image {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .work-image img {
+        border-radius: 0 0 40px 0;
+    }
+
+    .technology-right {
+        margin-top: 40px;
+    }
+
+    .base-image {
+        width: 100%;
+        height: clamp(200px, 50vw, 285px);
+        border-radius: 0 0 0 70px;
+        margin-bottom: 34px;
+    }
+
+    .masterclass-section {
+        padding-top: 30px;
+        padding-bottom: 70px;
+    }
+
+    .master-btn {
+        min-width: 250px;
+        margin-top: 26px;
+    }
+
+    .master-image-wrap {
+        width: 100%;
+        height: clamp(200px, 50vw, 260px);
+        margin-top: 40px;
+        border-radius: 0 0 0 70px;
+    }
+}
+
+@media (max-width: 500px) {
+    .about-hero-card span,
+    .about-hero-side .about-hero-card span {
+        font-size: 20px;
+    }
+
+    .about-hero-main,
+    .about-hero-side .about-hero-card {
+        aspect-ratio: 4 / 3;
+    }
+
+    .about-blue-section,
+    .finift-section,
+    .technology-section,
+    .masterclass-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .master-btn {
+        width: 100%;
+        min-width: 0;
+        padding: 0 18px;
+        font-size: 14px;
+    }
+}

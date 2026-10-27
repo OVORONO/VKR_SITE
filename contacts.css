@@ -1,0 +1,287 @@
+/* СТРАНИЦА КОНТАКТОВ */
+
+.contacts-page {
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.location-section {
+    width: 100%;
+    padding-top: 100px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.location-section h1 {
+    font-size: 34px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    margin-bottom: 32px;
+}
+
+.map-box {
+    width: 100%;
+    height: 470px;
+    overflow: hidden;
+    background: #e8efff;
+}
+
+.map-box iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+}
+
+.map-link {
+    padding: 14px 16px 0;
+    font-size: 15px;
+}
+
+.map-link a {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+.contacts-section {
+    position: relative;
+    width: 100%;
+    padding: 90px 0 120px;
+    background: #ffffff;
+}
+
+.contacts-inner {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 88px;
+}
+
+.contacts-inner h2 {
+    font-size: 27px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    margin-bottom: 34px;
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+.contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-card {
+    min-height: 86px;
+    padding: 22px 24px 20px;
+    background: var(--blue);
+    color: #ffffff;
+    border-radius: 14px;
+}
+
+.contact-card h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 9px;
+}
+
+.contact-card p,
+.contact-card a {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+.contact-card a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.contact-card-light {
+    background: var(--blue-pale);
+    color: var(--navy);
+}
+
+.contact-card-light p {
+    font-size: 14px;
+}
+
+/* Форма обратной связи */
+
+.contact-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 29px 26px 31px;
+    background: var(--blue);
+    color: #ffffff;
+    border-radius: 14px;
+    scroll-margin-top: 120px;
+}
+
+.contact-form h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.contact-form .form-field {
+    color: #ffffff;
+}
+
+.contact-form .form-field input,
+.contact-form .form-field select,
+.contact-form .form-field textarea {
+    border-color: transparent;
+    border-radius: 6px;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+}
+
+.contact-form .form-error {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.contact-form .form-error::before {
+    content: "⚠ ";
+}
+
+.contact-form .form-consent a {
+    color: #ffffff;
+}
+
+.send-btn {
+    align-self: flex-end;
+    min-height: 52px;
+    padding: 0 30px;
+    border-radius: 26px;
+    background: var(--brick);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.send-btn:hover {
+    opacity: 0.88;
+    transform: translateX(3px);
+}
+
+.send-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* ДЕКОРАТИВНЫЕ ЛИНИИ */
+
+.wave {
+    position: absolute;
+    fill: none;
+    stroke: var(--blue-light);
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.wave-left {
+    left: -10px;
+    bottom: 48px;
+    width: 660px;
+    height: 355px;
+}
+
+/* АДАПТИВ */
+
+@media (max-width: 1200px) {
+    .location-section {
+        padding-top: 80px;
+    }
+
+    .contacts-inner {
+        padding: 0 55px;
+    }
+
+    .map-box {
+        height: 405px;
+    }
+}
+
+@media (max-width: 800px) {
+    .location-section {
+        padding-top: 45px;
+    }
+
+    .location-section h1 {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .map-box {
+        height: 340px;
+    }
+
+    .contacts-section {
+        padding: 55px 0 80px;
+    }
+
+    .contacts-inner {
+        padding: 0 16px;
+    }
+
+    .contacts-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .contacts-inner h2 {
+        font-size: 25px;
+    }
+
+    .wave-left {
+        opacity: 0.45;
+        width: 540px;
+        bottom: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .location-section h1 {
+        font-size: 25px;
+    }
+
+    .map-box {
+        height: 285px;
+    }
+
+    .contact-card {
+        min-height: 80px;
+        padding: 20px 18px;
+    }
+
+    .contact-form {
+        padding: 24px 18px 28px;
+    }
+
+    .send-btn {
+        align-self: stretch;
+        justify-content: center;
+    }
+}

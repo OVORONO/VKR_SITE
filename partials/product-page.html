@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} — купить, ростовская финифть ручной работы | Ростовская эмаль</title>
+    <meta name="description" content="{{metaDescription}}">
+    <!-- @head -->
+    <!-- /@head -->
+    <link rel="stylesheet" href="../product.css">
+
+    <script type="application/ld+json">
+{{jsonLd}}
+    </script>
+</head>
+<body data-page="catalog" data-root="../" data-og-image="{{image}}">
+
+    <!-- @header -->
+    <!-- /@header -->
+
+    <main id="main" class="product-page">
+
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a href="../index.html">Главная</a>
+            <span aria-hidden="true">/</span>
+            <a href="../catalog.html">Каталог</a>
+            <span aria-hidden="true">/</span>
+            <a href="../catalog.html?category={{category}}">{{categoryName}}</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">{{title}}</span>
+        </nav>
+
+        <article class="product-layout product-card-full" data-id="{{id}}">
+
+            <div class="product-gallery">
+                <button class="product-photo" type="button" data-zoom="../{{image}}" aria-label="Увеличить фото: {{title}}">
+                    <img src="../{{image}}" alt="{{alt}}" width="{{width}}" height="{{height}}">
+                    <span class="product-zoom-hint">Нажмите, чтобы увеличить</span>
+                </button>
+            </div>
+
+            <div class="product-summary">
+                <h1>{{title}}</h1>
+                <p class="product-price">{{priceText}}</p>
+                <p class="product-stock">В наличии · изготовлено вручную</p>
+
+                <div class="product-buttons">
+                    <button class="btn btn-red" type="button" data-add-to-cart>В корзину</button>
+                    <button class="btn btn-light" type="button" data-buy-now>Купить сейчас</button>
+                    <button class="heart product-heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                </div>
+
+                <ul class="product-badges">
+                    <li>Ручная работа мастеров Ростова Великого</li>
+                    <li>Сертификат подлинности с подписью мастера</li>
+                    <li>Фирменная подарочная упаковка</li>
+                </ul>
+
+                <dl class="product-specs">
+                    <div><dt>Категория</dt><dd><a href="../catalog.html?category={{category}}">{{categoryName}}</a></dd></div>
+                    <div><dt>Коллекция</dt><dd><a href="../catalog.html?collection={{collection}}">{{collectionName}}</a></dd></div>
+                    <div><dt>Материал основы</dt><dd>{{materialName}}</dd></div>
+                    <div><dt>Техника</dt><dd>{{technique}}</dd></div>
+                    <div><dt>Размер</dt><dd>{{sizeText}}</dd></div>
+                    <div><dt>Мастер</dt><dd>{{authorName}}</dd></div>
+                    <div><dt>Артикул</dt><dd>{{sku}}</dd></div>
+                </dl>
+            </div>
+        </article>
+
+        <section class="product-details">
+            <div class="product-description">
+                <h2 class="gold-line">Описание</h2>
+                <p>{{description}}</p>
+                <p>
+                    Изделия ростовской финифти расписывают вручную, поэтому оттенки и мелкие детали росписи
+                    могут немного отличаться от фотографии — это особенность авторской работы, а не брак.
+                </p>
+            </div>
+
+            <div class="product-description">
+                <h2 class="gold-line">Уход за изделием</h2>
+                <p>
+                    Эмаль — это стекло, сплавленное с металлом. Роспись не выцветает со временем, но эмаль
+                    может сколоться от удара или падения. Храните изделие в футляре, отдельно от других украшений,
+                    снимайте его перед спортом и уборкой, протирайте мягкой сухой тканью без абразивных средств.
+                </p>
+            </div>
+
+            <div class="product-description">
+                <h2 class="gold-line">Доставка и оплата</h2>
+                <p>
+                    Отправляем по всей России СДЭК и Почтой России, есть самовывоз из мастерской в Ростове Великом.
+                    Каждое изделие упаковываем в подарочную коробку. Подробнее — на странице
+                    <a href="../delivery.html">«Доставка и оплата»</a>. Обмен и возврат — по
+                    <a href="../returns.html">правилам магазина</a>.
+                </p>
+            </div>
+        </section>
+
+        <section class="product-master">
+            <img src="../images/master-painting.webp" alt="Мастер расписывает эмаль тонкой кистью" width="810" height="312" loading="lazy">
+            <div>
+                <h2>Расписано вручную</h2>
+                <p>
+                    Каждое изделие проходит путь от медной заготовки до росписи и нескольких обжигов в нашей мастерской.
+                    Хотите изделие с другим сюжетом, гравировкой или в другом цвете? Сделаем по индивидуальному заказу.
+                </p>
+                <a href="../services.html#custom" class="btn btn-blue">Индивидуальный заказ</a>
+            </div>
+        </section>
+
+        <section class="related">
+            <h2 class="gold-line">Вам может понравиться</h2>
+            <div class="products-grid related-grid">
+{{related}}
+            </div>
+        </section>
+
+    </main>
+
+    <!-- @footer -->
+    <!-- /@footer -->
+
+<!-- @modals -->
+<!-- /@modals -->
+
+<!-- @scripts -->
+<!-- /@scripts -->
+<script src="../product.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+/* ГЛАВНАЯ СТРАНИЦА */
+
+/* БАННЕР */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    background: var(--navy);
+}
+
+.hero picture,
+.hero img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hero img {
+    object-fit: cover;
+    object-position: center 60%;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(20, 30, 55, 0.78) 0%, rgba(20, 30, 55, 0.45) 45%, rgba(20, 30, 55, 0) 75%);
+}
+
+.hero-content {
+    position: absolute;
+    z-index: 2;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 560px;
+    color: #ffffff;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.hero-content h1::after {
+    content: "";
+    display: block;
+    width: 72px;
+    height: 3px;
+    margin-top: 18px;
+    background: var(--gold);
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.45;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+/* ПРЕИМУЩЕСТВА */
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    padding: 40px 70px;
+    background: var(--blue-pale);
+}
+
+.benefit {
+    padding-left: 16px;
+    border-left: 2px solid var(--gold);
+}
+
+.benefit h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+}
+
+.benefit p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #4d5a7a;
+}
+
+/* КАТЕГОРИИ */
+
+.categories {
+    padding: 56px 22px 10px;
+    text-align: center;
+}
+
+.categories h2,
+.popular h2 {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 27px;
+}
+
+.category-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.category-links a {
+    padding: 10px 20px;
+    border-radius: 22px;
+    background: var(--blue-soft);
+    color: var(--navy);
+    font-size: 15px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.category-links a:hover {
+    background: var(--blue);
+    color: #ffffff;
+}
+
+/* ПОПУЛЯРНЫЕ ТОВАРЫ */
+
+.popular {
+    padding: 50px 0 70px;
+    background: #ffffff;
+}
+
+.popular h2 {
+    text-align: center;
+}
+
+.popular-more {
+    margin-top: 36px;
+    text-align: center;
+}
+
+/* О ФИНИФТИ */
+
+.home-about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    padding: 60px 70px 80px;
+    background: var(--blue-pale);
+}
+
+.home-about img {
+    width: 100%;
+    height: 100%;
+    max-height: 340px;
+    object-fit: cover;
+    border-radius: 0 0 0 85px;
+    display: block;
+}
+
+.home-about-text h2 {
+    font-size: 27px;
+    font-weight: 400;
+    margin-bottom: 24px;
+}
+
+.home-about-text p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 26px;
+}
+
+/* АДАПТИВ */
+
+@media (max-width: 1100px) {
+    .benefits {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 34px 35px;
+    }
+
+    .hero-content {
+        left: 35px;
+    }
+
+    .home-about {
+        padding: 50px 35px 60px;
+        gap: 34px;
+    }
+}
+
+@media (max-width: 900px) {
+    .home-about {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .hero {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero img {
+        height: clamp(180px, 50vw, 260px);
+    }
+
+    .hero::after {
+        display: none;
+    }
+
+    .hero-content {
+        position: static;
+        transform: none;
+        max-width: none;
+        padding: 26px 16px 30px;
+        background: var(--navy);
+    }
+
+    .hero-content h1 {
+        font-size: 27px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-buttons .btn {
+        flex: 1 1 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .benefits {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 28px 16px;
+    }
+
+    .categories {
+        padding: 40px 16px 0;
+    }
+
+    .category-links {
+        gap: 8px;
+    }
+
+    .category-links a {
+        font-size: 14px;
+        padding: 9px 16px;
+    }
+
+    .popular {
+        padding: 38px 0 50px;
+    }
+
+    .popular h2 {
+        font-size: 19px;
+        margin-bottom: 22px;
+    }
+
+    .home-about {
+        padding: 40px 16px 50px;
+    }
+
+    .home-about-text h2 {
+        font-size: 23px;
+    }
+}

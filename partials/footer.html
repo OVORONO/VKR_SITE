@@ -1,0 +1,53 @@
+    <!-- ФУТЕР -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="{{root}}index.html" class="footer-logo" aria-label="На главную">
+                    <img src="{{root}}images/logo-footer.png" alt="Логотип «Ростовская эмаль» — купол с волной" width="146" height="180" loading="lazy">
+                </a>
+                <div class="footer-brand-text">
+                    <p class="footer-brand-name">Ростовская эмаль</p>
+                    <p>Мастерская ростовской финифти: украшения, иконы и сувениры с ручной росписью по эмали.</p>
+                    <p>
+                        <a href="tel:{{phoneHref}}">{{phone}}</a><br>
+                        <a href="mailto:{{email}}">{{email}}</a><br>
+                        {{city}}, {{street}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-column">
+                    <h2>Покупателям</h2>
+                    <a href="{{root}}delivery.html">Доставка и оплата</a>
+                    <a href="{{root}}returns.html">Обмен и возврат</a>
+                    <a href="{{root}}privacy.html">Политика конфиденциальности</a>
+                    <a href="{{root}}cookies.html">Cookies</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Страницы</h2>
+                    <a href="{{root}}index.html">Главная</a>
+                    <a href="{{root}}catalog.html">Каталог</a>
+                    <a href="{{root}}services.html">Услуги</a>
+                    <a href="{{root}}about.html">О нас</a>
+                    <a href="{{root}}contacts.html">Контакты</a>
+                </div>
+
+                <div class="footer-social">
+                    <h2>Мы в соцсетях</h2>
+                    <div class="social-icons">
+{{#max}}                        <a href="{{max}}" target="_blank" rel="noopener noreferrer" aria-label="Канал в MAX"><img src="{{root}}images/max-icon.png" alt="" width="30" height="30"></a>
+{{/max}}                        <a href="{{vk}}" target="_blank" rel="noopener noreferrer" aria-label="Сообщество ВКонтакте"><img src="{{root}}images/vk-icon.png" alt="" width="30" height="30"></a>
+                        <a href="{{rutube}}" target="_blank" rel="noopener noreferrer" aria-label="Канал на Rutube"><img src="{{root}}images/rutube-icon.png" alt="" width="30" height="30"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 «Ростовская эмаль». Все права защищены.</p>
+{{#legalName}}            <p>{{legalName}}, ИНН {{inn}}, {{ogrnLabel}} {{ogrn}}</p>
+{{/legalName}}
+        </div>
+    </footer>

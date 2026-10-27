@@ -1,0 +1,82 @@
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+    <!-- ХЕДЕР -->
+    <header class="header">
+        <div class="header-top">
+
+            <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-nav">☰</button>
+
+            <a href="{{root}}catalog.html" class="order-btn">Сделать заказ</a>
+
+            <a href="{{root}}index.html" class="logo" aria-label="Ростовская эмаль — на главную">
+                <img src="{{root}}images/logo-text.png" alt="Ростовская эмаль" class="logo-img" width="630" height="66">
+            </a>
+
+            <div class="header-icons">
+                <form class="search-box" action="{{root}}search.html" role="search">
+                    <span class="svg-icon" aria-hidden="true">
+                        <svg viewBox="0 -2 24 24">
+                            <circle cx="11" cy="11" r="6"></circle>
+                            <path d="M16 16L21 21"></path>
+                        </svg>
+                    </span>
+                    <input type="search" name="q" placeholder="Поиск" aria-label="Поиск по каталогу">
+                </form>
+
+                <button class="icon-btn search-toggle" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="mobile-search">
+                    <svg class="svg-icon" viewBox="0 -2 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="6"></circle>
+                        <path d="M16 16L21 21"></path>
+                    </svg>
+                </button>
+
+                <button class="icon-btn" type="button" data-open-modal="cart-modal" aria-label="Корзина">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                        <path d="M6 7L5.3 4H3"></path>
+                        <circle cx="9" cy="20" r="1.2"></circle>
+                        <circle cx="17" cy="20" r="1.2"></circle>
+                    </svg>
+                    <span class="icon-badge" data-cart-count hidden>0</span>
+                </button>
+
+                <button class="icon-btn" type="button" data-open-modal="favorites-modal" aria-label="Избранное">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 20S4.5 15.5 4.5 9.5C4.5 6.8 6.2 5 8.4 5C10 5 11.2 5.9 12 7.1C12.8 5.9 14 5 15.6 5C17.8 5 19.5 6.8 19.5 9.5C19.5 15.5 12 20 12 20Z"></path>
+                    </svg>
+                    <span class="icon-badge" data-fav-count hidden>0</span>
+                </button>
+
+                <button class="icon-btn" type="button" data-open-modal="profile-modal" aria-label="Мои заказы">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="8" r="3.2"></circle>
+                        <path d="M5.5 20C6.4 16.8 8.8 15.2 12 15.2C15.2 15.2 17.6 16.8 18.5 20"></path>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+        <form class="mobile-search" id="mobile-search" action="{{root}}search.html" role="search">
+            <div class="search-box">
+                <input type="search" name="q" placeholder="Брошь, серьги, икона…" aria-label="Поиск по каталогу">
+            </div>
+            <button type="submit">Найти</button>
+        </form>
+
+        <nav class="nav" aria-label="Основное меню">
+            <a href="{{root}}catalog.html"{{active:catalog}}>Каталог</a>
+            <a href="{{root}}services.html"{{active:services}}>Услуги</a>
+            <a href="{{root}}about.html"{{active:about}}>О нас</a>
+            <a href="{{root}}contacts.html"{{active:contacts}}>Контакты</a>
+        </nav>
+
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильное меню">
+            <a href="{{root}}catalog.html"{{active:catalog}}>Каталог</a>
+            <a href="{{root}}services.html"{{active:services}}>Услуги</a>
+            <a href="{{root}}about.html"{{active:about}}>О нас</a>
+            <a href="{{root}}contacts.html"{{active:contacts}}>Контакты</a>
+            <a href="{{root}}delivery.html"{{active:delivery}}>Доставка и оплата</a>
+            <a href="{{root}}catalog.html" class="mobile-order-btn">Сделать заказ</a>
+        </nav>
+    </header>

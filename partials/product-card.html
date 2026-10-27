@@ -1,0 +1,20 @@
+                <article class="product-card{{cardClass}}" data-id="{{id}}" data-category="{{category}}" data-material="{{material}}" data-author="{{author}}" data-collection="{{collection}}" data-price="{{price}}" data-popularity="{{popularity}}" data-new="{{new}}">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="{{root}}{{url}}" tabindex="-1" aria-hidden="true">
+                        <img src="{{root}}{{image}}" alt="{{alt}}" width="{{width}}" height="{{height}}" loading="{{loading}}">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="{{root}}{{url}}">{{title}}</a></h3>
+                            <p>{{priceText}}</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: {{title}}">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>

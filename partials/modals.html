@@ -1,0 +1,78 @@
+<!-- МОДАЛЬНОЕ ОКНО: КОРЗИНА -->
+<dialog class="site-modal" id="cart-modal" aria-labelledby="cart-modal-title">
+    <section class="modal-window">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+
+        <h2 id="cart-modal-title">Корзина</h2>
+        <p class="modal-subtitle">Товары, которые вы выбрали для заказа</p>
+
+        <div class="modal-products" id="cart-items-list"></div>
+
+        <div class="modal-total">
+            <span>Итого:</span>
+            <strong id="cart-total-amount">0 ₽</strong>
+        </div>
+
+        <div class="modal-actions">
+            <a href="{{root}}checkout.html" class="modal-main-btn" id="cart-checkout-btn">Оформить заказ</a>
+            <button type="button" class="modal-light-btn" data-close-modal>Продолжить покупки</button>
+        </div>
+    </section>
+</dialog>
+
+<!-- МОДАЛЬНОЕ ОКНО: ИЗБРАННОЕ -->
+<dialog class="site-modal" id="favorites-modal" aria-labelledby="favorites-modal-title">
+    <section class="modal-window">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+
+        <h2 id="favorites-modal-title">Избранное</h2>
+        <p class="modal-subtitle">Товары, которые вы сохранили</p>
+
+        <div class="favorites-grid" id="favorites-items-list"></div>
+    </section>
+</dialog>
+
+<!-- МОДАЛЬНОЕ ОКНО: МОИ ЗАКАЗЫ -->
+<dialog class="site-modal profile-modal" id="profile-modal" aria-labelledby="profile-modal-title">
+    <section class="modal-window">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+
+        <h2 id="profile-modal-title">Мои заказы</h2>
+        <p class="modal-subtitle">Регистрация не нужна: заказы, оформленные с этого устройства, сохраняются здесь.</p>
+
+        <div class="orders-list" id="orders-list"></div>
+
+        <p class="profile-note">
+            Вопрос по заказу? Позвоните <a href="tel:{{phoneHref}}">{{phone}}</a>
+            или напишите на <a href="mailto:{{email}}">{{email}}</a>.
+        </p>
+    </section>
+</dialog>
+
+<!-- МОДАЛЬНОЕ ОКНО: СООБЩЕНИЕ -->
+<dialog class="site-modal" id="message-modal" aria-labelledby="message-modal-title">
+    <section class="modal-window">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+        <h2 id="message-modal-title">Сообщение</h2>
+        <p class="modal-text" id="message-modal-text"></p>
+        <div class="modal-actions" id="message-modal-actions">
+            <button type="button" class="modal-main-btn" data-close-modal>Понятно</button>
+        </div>
+    </section>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+    <span id="toast-text"></span>
+    <button type="button" data-open-modal="cart-modal">В корзину</button>
+</div>
+
+<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Уведомление о cookies" hidden>
+    <p>
+        Мы используем файлы cookies, чтобы сайт работал корректно, и сервис Яндекс.Метрика для статистики посещений.
+        Подробнее — в <a href="{{root}}cookies.html">политике использования cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+        <button type="button" class="btn btn-red" data-cookie="all">Принять</button>
+        <button type="button" class="btn btn-light" data-cookie="necessary">Только необходимые</button>
+    </div>
+</div>

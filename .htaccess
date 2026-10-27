@@ -1,0 +1,32 @@
+# Настройки для хостинга на Apache (Beget, Timeweb, REG.RU и др.)
+
+AddDefaultCharset UTF-8
+AddType image/webp .webp
+AddType application/manifest+json .webmanifest
+
+ErrorDocument 404 /404.html
+
+# Служебные папки не должны открываться из браузера
+RedirectMatch 404 ^/(partials|_archive|data)/
+RedirectMatch 404 ^/(build\.ps1|build\.cmd|README\.md)$
+
+# Перенаправление на HTTPS (включите после подключения SSL-сертификата)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Кэширование статики в браузере
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType text/javascript "access plus 1 week"
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json image/svg+xml
+</IfModule>

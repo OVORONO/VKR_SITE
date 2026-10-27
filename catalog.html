@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог изделий ростовской финифти — броши, серьги, иконы, шкатулки | Ростовская эмаль</title>
+    <meta name="description" content="Каталог мастерской «Ростовская эмаль»: броши, серьги, кулоны, браслеты, шкатулки, иконы и сувениры с ручной росписью по эмали. Фильтры по категории, цене, материалу и коллекции.">
+
+    <!-- @head -->
+    <link rel="canonical" href="https://rostovskaya-emal.ru/catalog.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ростовская эмаль">
+    <meta property="og:title" content="Каталог изделий ростовской финифти — броши, серьги, иконы, шкатулки | Ростовская эмаль">
+    <meta property="og:description" content="Каталог мастерской «Ростовская эмаль»: броши, серьги, кулоны, браслеты, шкатулки, иконы и сувениры с ручной росписью по эмали. Фильтры по категории, цене, материалу и коллекции.">
+    <meta property="og:url" content="https://rostovskaya-emal.ru/catalog.html">
+    <meta property="og:image" content="https://rostovskaya-emal.ru/images/og-image.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="64x64" href="images/favicon-64.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#3570d6">
+    <link rel="preload" href="fonts/pt-sans-400-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="common.css">
+    <!-- /@head -->
+    <link rel="stylesheet" href="catalog.css">
+</head>
+<body data-page="catalog">
+
+    <!-- @header -->
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+    <!-- ХЕДЕР -->
+    <header class="header">
+        <div class="header-top">
+
+            <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-nav">☰</button>
+
+            <a href="catalog.html" class="order-btn">Сделать заказ</a>
+
+            <a href="index.html" class="logo" aria-label="Ростовская эмаль — на главную">
+                <img src="images/logo-text.png" alt="Ростовская эмаль" class="logo-img" width="630" height="66">
+            </a>
+
+            <div class="header-icons">
+                <form class="search-box" action="search.html" role="search">
+                    <span class="svg-icon" aria-hidden="true">
+                        <svg viewBox="0 -2 24 24">
+                            <circle cx="11" cy="11" r="6"></circle>
+                            <path d="M16 16L21 21"></path>
+                        </svg>
+                    </span>
+                    <input type="search" name="q" placeholder="Поиск" aria-label="Поиск по каталогу">
+                </form>
+
+                <button class="icon-btn search-toggle" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="mobile-search">
+                    <svg class="svg-icon" viewBox="0 -2 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="6"></circle>
+                        <path d="M16 16L21 21"></path>
+                    </svg>
+                </button>
+
+                <button class="icon-btn" type="button" data-open-modal="cart-modal" aria-label="Корзина">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                        <path d="M6 7L5.3 4H3"></path>
+                        <circle cx="9" cy="20" r="1.2"></circle>
+                        <circle cx="17" cy="20" r="1.2"></circle>
+                    </svg>
+                    <span class="icon-badge" data-cart-count hidden>0</span>
+                </button>
+
+                <button class="icon-btn" type="button" data-open-modal="favorites-modal" aria-label="Избранное">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 20S4.5 15.5 4.5 9.5C4.5 6.8 6.2 5 8.4 5C10 5 11.2 5.9 12 7.1C12.8 5.9 14 5 15.6 5C17.8 5 19.5 6.8 19.5 9.5C19.5 15.5 12 20 12 20Z"></path>
+                    </svg>
+                    <span class="icon-badge" data-fav-count hidden>0</span>
+                </button>
+
+                <button class="icon-btn" type="button" data-open-modal="profile-modal" aria-label="Мои заказы">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="8" r="3.2"></circle>
+                        <path d="M5.5 20C6.4 16.8 8.8 15.2 12 15.2C15.2 15.2 17.6 16.8 18.5 20"></path>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+        <form class="mobile-search" id="mobile-search" action="search.html" role="search">
+            <div class="search-box">
+                <input type="search" name="q" placeholder="Брошь, серьги, икона…" aria-label="Поиск по каталогу">
+            </div>
+            <button type="submit">Найти</button>
+        </form>
+
+        <nav class="nav" aria-label="Основное меню">
+            <a href="catalog.html" class="active-link" aria-current="page">Каталог</a>
+            <a href="services.html">Услуги</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильное меню">
+            <a href="catalog.html" class="active-link" aria-current="page">Каталог</a>
+            <a href="services.html">Услуги</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="delivery.html">Доставка и оплата</a>
+            <a href="catalog.html" class="mobile-order-btn">Сделать заказ</a>
+        </nav>
+    </header>
+    <!-- /@header -->
+
+    <main id="main" class="catalog-page">
+
+        <svg class="catalog-pattern" viewBox="0 0 330 520" aria-hidden="true">
+            <path d="M-20 20 C120 90 150 190 90 280 C40 360 80 450 200 520"/>
+            <path d="M-20 70 C150 140 190 240 130 330 C80 410 120 490 250 560"/>
+            <path d="M-20 120 C180 190 230 290 170 380 C120 460 160 530 300 600"/>
+        </svg>
+
+        <aside class="catalog-sidebar">
+
+            <h1>Каталог</h1>
+
+            <button type="button" class="filters-toggle" aria-expanded="false" aria-controls="filters-panel">
+                Фильтры <span class="filters-toggle-count" id="filters-active-count" hidden></span>
+            </button>
+
+            <div class="filters-panel" id="filters-panel">
+                <!-- @catalog-filters -->
+            <details class="filter-item" open>
+                <summary>Категории</summary>
+                <div class="filter-list">
+                    <label><input type="checkbox" name="category" value="broshi"> Броши <span class="filter-count">3</span></label>
+                    <label><input type="checkbox" name="category" value="sergi"> Серьги <span class="filter-count">2</span></label>
+                    <label><input type="checkbox" name="category" value="kulony"> Кулоны и колье <span class="filter-count">5</span></label>
+                    <label><input type="checkbox" name="category" value="braslety"> Браслеты <span class="filter-count">2</span></label>
+                    <label><input type="checkbox" name="category" value="shkatulki"> Шкатулки <span class="filter-count">2</span></label>
+                    <label><input type="checkbox" name="category" value="ikony"> Иконы <span class="filter-count">2</span></label>
+                    <label><input type="checkbox" name="category" value="interer"> Картины и панно <span class="filter-count">2</span></label>
+                    <label><input type="checkbox" name="category" value="aksessuary"> Аксессуары <span class="filter-count">5</span></label>
+                    <label><input type="checkbox" name="category" value="suveniry"> Сувениры <span class="filter-count">3</span></label>
+                </div>
+            </details>
+
+            <details class="filter-item">
+                <summary>Стоимость</summary>
+                <div class="filter-list">
+                    <label><input type="checkbox" name="price" value="to-5000"> До 5 000 ₽ <span class="filter-count">5</span></label>
+                    <label><input type="checkbox" name="price" value="5000-10000"> 5 000 — 10 000 ₽ <span class="filter-count">13</span></label>
+                    <label><input type="checkbox" name="price" value="10000-20000"> 10 000 — 20 000 ₽ <span class="filter-count">8</span></label>
+                </div>
+            </details>
+
+            <details class="filter-item">
+                <summary>Материал основы</summary>
+                <div class="filter-list">
+                    <label><input type="checkbox" name="material" value="serebro"> Серебро <span class="filter-count">7</span></label>
+                    <label><input type="checkbox" name="material" value="med"> Медь <span class="filter-count">5</span></label>
+                    <label><input type="checkbox" name="material" value="latun"> Латунь <span class="filter-count">10</span></label>
+                    <label><input type="checkbox" name="material" value="splav"> Ювелирный сплав <span class="filter-count">4</span></label>
+                </div>
+            </details>
+
+            <details class="filter-item">
+                <summary>Коллекция</summary>
+                <div class="filter-list">
+                    <label><input type="checkbox" name="collection" value="zimnyaya"> Зимняя <span class="filter-count">4</span></label>
+                    <label><input type="checkbox" name="collection" value="klassika"> Классика <span class="filter-count">6</span></label>
+                    <label><input type="checkbox" name="collection" value="cvety"> Цветы <span class="filter-count">7</span></label>
+                    <label><input type="checkbox" name="collection" value="ptitsy"> Птицы <span class="filter-count">5</span></label>
+                    <label><input type="checkbox" name="collection" value="podarochnaya"> Подарочная <span class="filter-count">4</span></label>
+                </div>
+            </details>
+                <!-- /@catalog-filters -->
+
+                <button type="button" class="reset-filters" id="reset-filters">Сбросить фильтры</button>
+            </div>
+
+        </aside>
+
+        <section class="catalog-content" aria-label="Товары">
+
+            <div class="catalog-top-panel">
+
+                <p class="catalog-count" id="catalog-count" aria-live="polite"></p>
+
+                <details class="sort-select" id="sort-select">
+                    <summary id="sort-summary">По популярности</summary>
+
+                    <div class="sort-list">
+                        <button type="button" class="sort-option is-active" data-sort="popular">По популярности</button>
+                        <button type="button" class="sort-option" data-sort="price-up">Сначала дешевле</button>
+                        <button type="button" class="sort-option" data-sort="price-down">Сначала дороже</button>
+                        <button type="button" class="sort-option" data-sort="new">Новинки</button>
+                    </div>
+                </details>
+
+            </div>
+
+            <div class="catalog-grid" id="catalog-grid">
+
+                <!-- @catalog-cards -->
+                <article class="product-card big-card" data-id="panno-zimniy-rostov" data-category="interer" data-material="latun" data-author="master-brand" data-collection="zimnyaya" data-price="14900" data-popularity="1" data-new="17">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/panno-zimniy-rostov.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/panno-zimniy-rostov.webp" alt="Панно «Зимний Ростов» — панно в деревянной раме с видом зимнего Ростова Великого" width="579" height="442" loading="eager">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/panno-zimniy-rostov.html">Панно «Зимний Ростов»</a></h3>
+                            <p>14 900 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Панно «Зимний Ростов»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="brosh-pero-pavlina" data-category="broshi" data-material="splav" data-author="master-brand" data-collection="ptitsy" data-price="6499" data-popularity="2" data-new="18">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/brosh-pero-pavlina.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/brosh-pero-pavlina.webp" alt="Брошь «Перо павлина» — ажурная брошь в форме павлиньего пера" width="600" height="600" loading="eager">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/brosh-pero-pavlina.html">Брошь «Перо павлина»</a></h3>
+                            <p>6 499 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Брошь «Перо павлина»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="kulon-zimniy-rassvet" data-category="kulony" data-material="med" data-author="master-brand" data-collection="zimnyaya" data-price="5999" data-popularity="3" data-new="19">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/kulon-zimniy-rassvet.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/kulon-zimniy-rassvet.webp" alt="Кулон «Зимний рассвет» — овальный кулон с миниатюрным зимним пейзажем" width="600" height="600" loading="eager">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/kulon-zimniy-rassvet.html">Кулон «Зимний рассвет»</a></h3>
+                            <p>5 999 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Кулон «Зимний рассвет»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="brosh-sinyaya-lastochka" data-category="broshi" data-material="splav" data-author="master-brand" data-collection="ptitsy" data-price="7499" data-popularity="4" data-new="20">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/brosh-sinyaya-lastochka.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/brosh-sinyaya-lastochka.webp" alt="Брошь «Синяя ласточка» — брошь в виде летящей ласточки" width="600" height="600" loading="eager">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/brosh-sinyaya-lastochka.html">Брошь «Синяя ласточка»</a></h3>
+                            <p>7 499 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Брошь «Синяя ласточка»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="braslet-cvetochnaya-miniatyura" data-category="braslety" data-material="splav" data-author="master-brand" data-collection="cvety" data-price="8999" data-popularity="5" data-new="21">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/braslet-cvetochnaya-miniatyura.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/braslet-cvetochnaya-miniatyura.webp" alt="Браслет «Цветочная миниатюра» — кожаный браслет с металлической вставкой, на которой расписан цветочный орнамент в традициях ростовской финифти" width="600" height="600" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/braslet-cvetochnaya-miniatyura.html">Браслет «Цветочная миниатюра»</a></h3>
+                            <p>8 999 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Браслет «Цветочная миниатюра»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="podkova-na-schaste" data-category="suveniry" data-material="latun" data-author="master-brand" data-collection="podarochnaya" data-price="11999" data-popularity="6" data-new="22">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/podkova-na-schaste.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/podkova-na-schaste.webp" alt="Сувенир «Подкова на счастье» — сувенирная подкова на деревянном основании" width="600" height="600" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/podkova-na-schaste.html">Сувенир «Подкова на счастье»</a></h3>
+                            <p>11 999 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Сувенир «Подкова на счастье»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="sergi-alye-cvety" data-category="sergi" data-material="med" data-author="master-brand" data-collection="cvety" data-price="6999" data-popularity="7" data-new="23">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/sergi-alye-cvety.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/sergi-alye-cvety.webp" alt="Серьги «Алые цветы» — серьги-капли с цветочной росписью на насыщенном красном фоне в ажурной оправе" width="600" height="600" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/sergi-alye-cvety.html">Серьги «Алые цветы»</a></h3>
+                            <p>6 999 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Серьги «Алые цветы»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="kulon-severnoe-siyanie" data-category="kulony" data-material="latun" data-author="master-brand" data-collection="zimnyaya" data-price="5499" data-popularity="8" data-new="24">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/kulon-severnoe-siyanie.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/kulon-severnoe-siyanie.webp" alt="Кулон «Северное сияние» — круглый кулон в оправе цвета бронзы с плавными переливами розового, фиолетового и синего — как всполохи северного сияния" width="576" height="587" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/kulon-severnoe-siyanie.html">Кулон «Северное сияние»</a></h3>
+                            <p>5 499 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Кулон «Северное сияние»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="sergi-rozovyy-mramor" data-category="sergi" data-material="med" data-author="master-brand" data-collection="klassika" data-price="6499" data-popularity="9" data-new="25">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/sergi-rozovyy-mramor.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/sergi-rozovyy-mramor.webp" alt="Серьги «Розовый мрамор» — круглые серьги на английском замке с мраморным узором в розовых и сиреневых тонах" width="598" height="574" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/sergi-rozovyy-mramor.html">Серьги «Розовый мрамор»</a></h3>
+                            <p>6 499 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Серьги «Розовый мрамор»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="kulon-mudraya-sova" data-category="kulony" data-material="latun" data-author="master-brand" data-collection="ptitsy" data-price="7999" data-popularity="10" data-new="26">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/kulon-mudraya-sova.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/kulon-mudraya-sova.webp" alt="Кулон «Мудрая сова» — кулон в виде совы на шнурке" width="292" height="600" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/kulon-mudraya-sova.html">Кулон «Мудрая сова»</a></h3>
+                            <p>7 999 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Кулон «Мудрая сова»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="shkatulka-cvetochnyy-uzor" data-category="shkatulki" data-material="med" data-author="master-brand" data-collection="cvety" data-price="16000" data-popularity="11" data-new="16">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/shkatulka-cvetochnyy-uzor.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/shkatulka-cvetochnyy-uzor.webp" alt="Шкатулка «Цветочный узор» — шкатулка с ажурными стенками и крышкой, расписанной пышными розами по светлому фону" width="233" height="149" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/shkatulka-cvetochnyy-uzor.html">Шкатулка «Цветочный узор»</a></h3>
+                            <p>16 000 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Шкатулка «Цветочный узор»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="kolokolchik-rostovskiy-suvenir" data-category="suveniry" data-material="splav" data-author="master-brand" data-collection="podarochnaya" data-price="4200" data-popularity="12" data-new="15">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/kolokolchik-rostovskiy-suvenir.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/kolokolchik-rostovskiy-suvenir.webp" alt="Колокольчик «Ростовский сувенир» — металлический колокольчик с жемчужиной-навершием и небольшой вставкой ростовской финифти" width="136" height="257" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/kolokolchik-rostovskiy-suvenir.html">Колокольчик «Ростовский сувенир»</a></h3>
+                            <p>4 200 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Колокольчик «Ростовский сувенир»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="brosh-zolotaya-ptica" data-category="broshi" data-material="latun" data-author="master-brand" data-collection="ptitsy" data-price="6900" data-popularity="13" data-new="14">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/brosh-zolotaya-ptica.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/brosh-zolotaya-ptica.webp" alt="Брошь «Золотая птица» — брошь с ажурными золотистыми крыльями и вставкой в форме сердца, на которой расписан сине-сиреневый цветок" width="218" height="209" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/brosh-zolotaya-ptica.html">Брошь «Золотая птица»</a></h3>
+                            <p>6 900 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Брошь «Золотая птица»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="zazhim-dlya-platka-cvetochnaya-miniatyura" data-category="aksessuary" data-material="serebro" data-author="master-brand" data-collection="cvety" data-price="3800" data-popularity="14" data-new="13">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/zazhim-dlya-platka-cvetochnaya-miniatyura.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/zazhim-dlya-platka-cvetochnaya-miniatyura.webp" alt="Зажим для платка «Цветочная миниатюра» — зажим для платка или шарфа" width="280" height="280" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/zazhim-dlya-platka-cvetochnaya-miniatyura.html">Зажим для платка «Цветочная миниатюра»</a></h3>
+                            <p>3 800 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Зажим для платка «Цветочная миниатюра»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="kolye-izumrudnaya-finift" data-category="kulony" data-material="latun" data-author="master-brand" data-collection="klassika" data-price="12500" data-popularity="15" data-new="12">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/kolye-izumrudnaya-finift.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/kolye-izumrudnaya-finift.webp" alt="Колье «Изумрудная финифть» — колье из пяти треугольных эмалевых элементов в изумрудно-синих тонах на тонкой цепочке" width="207" height="232" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/kolye-izumrudnaya-finift.html">Колье «Изумрудная финифть»</a></h3>
+                            <p>12 500 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Колье «Изумрудная финифть»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="braslet-rostovskie-cveta" data-category="braslety" data-material="serebro" data-author="master-brand" data-collection="cvety" data-price="7400" data-popularity="16" data-new="11">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/braslet-rostovskie-cveta.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/braslet-rostovskie-cveta.webp" alt="Браслет «Ростовские цвета» — белый браслет с металлической вставкой, на которой расписана гирлянда из мелких цветов" width="263" height="160" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/braslet-rostovskie-cveta.html">Браслет «Ростовские цвета»</a></h3>
+                            <p>7 400 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Браслет «Ростовские цвета»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="shkatulka-sinyaya-glad" data-category="shkatulki" data-material="latun" data-author="master-brand" data-collection="zimnyaya" data-price="9900" data-popularity="17" data-new="10">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/shkatulka-sinyaya-glad.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/shkatulka-sinyaya-glad.webp" alt="Шкатулка «Синяя гладь» — овальная шкатулка на ажурном основании" width="226" height="190" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/shkatulka-sinyaya-glad.html">Шкатулка «Синяя гладь»</a></h3>
+                            <p>9 900 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Шкатулка «Синяя гладь»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="ikona-triptih-svyatye-pokroviteli" data-category="ikony" data-material="med" data-author="master-brand" data-collection="klassika" data-price="11999" data-popularity="18" data-new="9">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/ikona-triptih-svyatye-pokroviteli.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/ikona-triptih-svyatye-pokroviteli.webp" alt="Икона-триптих «Святые покровители» — складень-триптих в деревянной раме" width="257" height="216" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/ikona-triptih-svyatye-pokroviteli.html">Икона-триптих «Святые покровители»</a></h3>
+                            <p>11 999 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Икона-триптих «Святые покровители»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="ikona-bogorodica" data-category="ikony" data-material="latun" data-author="master-brand" data-collection="klassika" data-price="13200" data-popularity="19" data-new="8">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/ikona-bogorodica.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/ikona-bogorodica.webp" alt="Икона «Богородица» — казанская икона Божией Матери в деревянном киоте с золотистой рамкой" width="205" height="223" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/ikona-bogorodica.html">Икона «Богородица»</a></h3>
+                            <p>13 200 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Икона «Богородица»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="podveska-zakladka-siniy-cvetok" data-category="aksessuary" data-material="serebro" data-author="master-brand" data-collection="cvety" data-price="5600" data-popularity="20" data-new="7">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/podveska-zakladka-siniy-cvetok.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/podveska-zakladka-siniy-cvetok.webp" alt="Подвеска-закладка «Синий цветок» — подвеска-закладка с кисточкой из цепочек и круглой вставкой" width="141" height="272" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/podveska-zakladka-siniy-cvetok.html">Подвеска-закладка «Синий цветок»</a></h3>
+                            <p>5 600 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Подвеска-закладка «Синий цветок»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="kartina-sova" data-category="interer" data-material="latun" data-author="master-brand" data-collection="ptitsy" data-price="14999" data-popularity="21" data-new="6">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/kartina-sova.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/kartina-sova.webp" alt="Картина «Сова» — миниатюрная картина в светлой раме" width="211" height="273" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/kartina-sova.html">Картина «Сова»</a></h3>
+                            <p>14 999 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Картина «Сова»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="podstakannik-romashki" data-category="suveniry" data-material="latun" data-author="master-brand" data-collection="podarochnaya" data-price="11999" data-popularity="22" data-new="5">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/podstakannik-romashki.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/podstakannik-romashki.webp" alt="Подстаканник «Ромашки» — подстаканник с гранёным стаканом и вставкой, расписанной ромашками по белой эмали" width="149" height="228" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/podstakannik-romashki.html">Подстаканник «Ромашки»</a></h3>
+                            <p>11 999 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Подстаканник «Ромашки»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="brelok-rostovskiy-gerb" data-category="aksessuary" data-material="serebro" data-author="master-brand" data-collection="podarochnaya" data-price="2900" data-popularity="23" data-new="4">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/brelok-rostovskiy-gerb.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/brelok-rostovskiy-gerb.webp" alt="Брелок «Ростовский герб» — брелок для ключей с круглой вставкой" width="222" height="283" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/brelok-rostovskiy-gerb.html">Брелок «Ростовский герб»</a></h3>
+                            <p>2 900 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Брелок «Ростовский герб»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="podveska-yarkaya-kaplya" data-category="kulony" data-material="serebro" data-author="master-brand" data-collection="klassika" data-price="4700" data-popularity="24" data-new="3">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/podveska-yarkaya-kaplya.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/podveska-yarkaya-kaplya.webp" alt="Подвеска «Яркая капля» — подвеска-капля с полосами насыщенных цветов — жёлтого, красного, зелёного и чёрного — в ажурной оправе" width="155" height="234" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/podveska-yarkaya-kaplya.html">Подвеска «Яркая капля»</a></h3>
+                            <p>4 700 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Подвеска «Яркая капля»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="zakladka-serebryanyy-uzor" data-category="aksessuary" data-material="serebro" data-author="master-brand" data-collection="klassika" data-price="3900" data-popularity="25" data-new="2">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/zakladka-serebryanyy-uzor.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/zakladka-serebryanyy-uzor.webp" alt="Закладка «Серебряный узор» — металлическая закладка для книг с ажурным узором и маленькой вставкой финифти" width="286" height="286" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/zakladka-serebryanyy-uzor.html">Закладка «Серебряный узор»</a></h3>
+                            <p>3 900 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Закладка «Серебряный узор»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="zerkalce-cvetochnaya-emal" data-category="aksessuary" data-material="serebro" data-author="master-brand" data-collection="cvety" data-price="6800" data-popularity="26" data-new="1">
+                    <button class="heart" type="button" aria-label="Добавить в избранное" aria-pressed="false">♡</button>
+                    <a class="product-image" href="products/zerkalce-cvetochnaya-emal.html" tabindex="-1" aria-hidden="true">
+                        <img src="images/products/zerkalce-cvetochnaya-emal.webp" alt="Зеркальце «Цветочная эмаль» — карманное зеркальце в оправе с ручкой-каплей" width="315" height="288" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <div>
+                            <h3><a href="products/zerkalce-cvetochnaya-emal.html">Зеркальце «Цветочная эмаль»</a></h3>
+                            <p>6 800 ₽</p>
+                        </div>
+                        <button class="cart-btn" type="button" aria-label="Добавить в корзину: Зеркальце «Цветочная эмаль»">
+                            <svg class="cart-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                                <path d="M6 7L5.3 4H3"></path>
+                                <circle cx="9" cy="20" r="1.2"></circle>
+                                <circle cx="17" cy="20" r="1.2"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+                <!-- /@catalog-cards -->
+
+                <div class="catalog-banners">
+                    <a href="services.html#custom" class="catalog-banner custom-banner">
+                        <strong>Индивидуальный заказ</strong>
+                        <span>Распишем изделие по вашему эскизу, добавим гравировку или любимый орнамент</span>
+                        <span class="catalog-banner-link">Подробнее →</span>
+                    </a>
+
+                    <a href="delivery.html#packaging" class="catalog-banner gift-banner">
+                        <strong>Готовый подарок</strong>
+                        <span>Фирменная упаковка и сертификат подлинности — к каждому изделию</span>
+                        <span class="catalog-banner-link">Об упаковке и доставке →</span>
+                    </a>
+                </div>
+
+                <p class="catalog-empty" id="catalog-empty" hidden>
+                    По выбранным фильтрам товаров не найдено.
+                    <button type="button" class="reset-filters" data-reset-filters>Сбросить фильтры</button>
+                </p>
+            </div>
+
+            <div class="catalog-more">
+                <button type="button" class="btn btn-light" id="catalog-more" hidden>Показать ещё</button>
+            </div>
+
+            <section class="catalog-seo">
+                <h2>Изделия ростовской финифти ручной работы</h2>
+                <p>
+                    Все изделия в каталоге созданы в мастерской «Ростовская эмаль» в Ростове Великом.
+                    Роспись по эмали выполняется вручную, поэтому каждая брошь, икона или шкатулка уникальна.
+                    Не нашли подходящее изделие — <a href="services.html#custom">закажите индивидуальное</a>
+                    или <a href="contacts.html#feedback">задайте вопрос мастеру</a>.
+                </p>
+            </section>
+
+        </section>
+
+    </main>
+
+    <!-- @footer -->
+    <!-- ФУТЕР -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo" aria-label="На главную">
+                    <img src="images/logo-footer.png" alt="Логотип «Ростовская эмаль» — купол с волной" width="146" height="180" loading="lazy">
+                </a>
+                <div class="footer-brand-text">
+                    <p class="footer-brand-name">Ростовская эмаль</p>
+                    <p>Мастерская ростовской финифти: украшения, иконы и сувениры с ручной росписью по эмали.</p>
+                    <p>
+                        <a href="tel:+79999999999">+7 (999) 999-99-99</a><br>
+                        <a href="mailto:email@finift.ru">email@finift.ru</a><br>
+                        г. Ростов, Ярославская обл., ул. Покровская, 65/17Б
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-column">
+                    <h2>Покупателям</h2>
+                    <a href="delivery.html">Доставка и оплата</a>
+                    <a href="returns.html">Обмен и возврат</a>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                    <a href="cookies.html">Cookies</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Страницы</h2>
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="services.html">Услуги</a>
+                    <a href="about.html">О нас</a>
+                    <a href="contacts.html">Контакты</a>
+                </div>
+
+                <div class="footer-social">
+                    <h2>Мы в соцсетях</h2>
+                    <div class="social-icons">
+                        <a href="https://vk.com/club238020078" target="_blank" rel="noopener noreferrer" aria-label="Сообщество ВКонтакте"><img src="images/vk-icon.png" alt="" width="30" height="30"></a>
+                        <a href="https://rutube.ru/channel/78386521/" target="_blank" rel="noopener noreferrer" aria-label="Канал на Rutube"><img src="images/rutube-icon.png" alt="" width="30" height="30"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 «Ростовская эмаль». Все права защищены.</p>
+
+        </div>
+    </footer>
+    <!-- /@footer -->
+
+<!-- @modals -->
+<!-- МОДАЛЬНОЕ ОКНО: КОРЗИНА -->
+<dialog class="site-modal" id="cart-modal" aria-labelledby="cart-modal-title">
+    <section class="modal-window">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+
+        <h2 id="cart-modal-title">Корзина</h2>
+        <p class="modal-subtitle">Товары, которые вы выбрали для заказа</p>
+
+        <div class="modal-products" id="cart-items-list"></div>
+
+        <div class="modal-total">
+            <span>Итого:</span>
+            <strong id="cart-total-amount">0 ₽</strong>
+        </div>
+
+        <div class="modal-actions">
+            <a href="checkout.html" class="modal-main-btn" id="cart-checkout-btn">Оформить заказ</a>
+            <button type="button" class="modal-light-btn" data-close-modal>Продолжить покупки</button>
+        </div>
+    </section>
+</dialog>
+
+<!-- МОДАЛЬНОЕ ОКНО: ИЗБРАННОЕ -->
+<dialog class="site-modal" id="favorites-modal" aria-labelledby="favorites-modal-title">
+    <section class="modal-window">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+
+        <h2 id="favorites-modal-title">Избранное</h2>
+        <p class="modal-subtitle">Товары, которые вы сохранили</p>
+
+        <div class="favorites-grid" id="favorites-items-list"></div>
+    </section>
+</dialog>
+
+<!-- МОДАЛЬНОЕ ОКНО: МОИ ЗАКАЗЫ -->
+<dialog class="site-modal profile-modal" id="profile-modal" aria-labelledby="profile-modal-title">
+    <section class="modal-window">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+
+        <h2 id="profile-modal-title">Мои заказы</h2>
+        <p class="modal-subtitle">Регистрация не нужна: заказы, оформленные с этого устройства, сохраняются здесь.</p>
+
+        <div class="orders-list" id="orders-list"></div>
+
+        <p class="profile-note">
+            Вопрос по заказу? Позвоните <a href="tel:+79999999999">+7 (999) 999-99-99</a>
+            или напишите на <a href="mailto:email@finift.ru">email@finift.ru</a>.
+        </p>
+    </section>
+</dialog>
+
+<!-- МОДАЛЬНОЕ ОКНО: СООБЩЕНИЕ -->
+<dialog class="site-modal" id="message-modal" aria-labelledby="message-modal-title">
+    <section class="modal-window">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+        <h2 id="message-modal-title">Сообщение</h2>
+        <p class="modal-text" id="message-modal-text"></p>
+        <div class="modal-actions" id="message-modal-actions">
+            <button type="button" class="modal-main-btn" data-close-modal>Понятно</button>
+        </div>
+    </section>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+    <span id="toast-text"></span>
+    <button type="button" data-open-modal="cart-modal">В корзину</button>
+</div>
+
+<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Уведомление о cookies" hidden>
+    <p>
+        Мы используем файлы cookies, чтобы сайт работал корректно, и сервис Яндекс.Метрика для статистики посещений.
+        Подробнее — в <a href="cookies.html">политике использования cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+        <button type="button" class="btn btn-red" data-cookie="all">Принять</button>
+        <button type="button" class="btn btn-light" data-cookie="necessary">Только необходимые</button>
+    </div>
+</div>
+<!-- /@modals -->
+
+<!-- @scripts -->
+<script src="site-data.js"></script>
+<script src="site.js"></script>
+<script src="cart-favorites.js"></script>
+<script src="search.js"></script>
+<!-- /@scripts -->
+<script src="catalog-filters.js"></script>
+
+</body>
+</html>

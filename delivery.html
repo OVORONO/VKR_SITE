@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доставка и оплата изделий из финифти по России | Ростовская эмаль</title>
+    <meta name="description" content="Доставка изделий ростовской финифти по России: СДЭК, Почта России, самовывоз из мастерской в Ростове. Оплата картой, через СБП или при получении. Подарочная упаковка бесплатно.">
+
+    <!-- @head -->
+    <link rel="canonical" href="https://rostovskaya-emal.ru/delivery.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ростовская эмаль">
+    <meta property="og:title" content="Доставка и оплата изделий из финифти по России | Ростовская эмаль">
+    <meta property="og:description" content="Доставка изделий ростовской финифти по России: СДЭК, Почта России, самовывоз из мастерской в Ростове. Оплата картой, через СБП или при получении. Подарочная упаковка бесплатно.">
+    <meta property="og:url" content="https://rostovskaya-emal.ru/delivery.html">
+    <meta property="og:image" content="https://rostovskaya-emal.ru/images/og-image.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="64x64" href="images/favicon-64.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#3570d6">
+    <link rel="preload" href="fonts/pt-sans-400-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="common.css">
+    <!-- /@head -->
+    <link rel="stylesheet" href="info.css">
+</head>
+<body data-page="delivery">
+
+    <!-- @header -->
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+    <!-- ХЕДЕР -->
+    <header class="header">
+        <div class="header-top">
+
+            <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-nav">☰</button>
+
+            <a href="catalog.html" class="order-btn">Сделать заказ</a>
+
+            <a href="index.html" class="logo" aria-label="Ростовская эмаль — на главную">
+                <img src="images/logo-text.png" alt="Ростовская эмаль" class="logo-img" width="630" height="66">
+            </a>
+
+            <div class="header-icons">
+                <form class="search-box" action="search.html" role="search">
+                    <span class="svg-icon" aria-hidden="true">
+                        <svg viewBox="0 -2 24 24">
+                            <circle cx="11" cy="11" r="6"></circle>
+                            <path d="M16 16L21 21"></path>
+                        </svg>
+                    </span>
+                    <input type="search" name="q" placeholder="Поиск" aria-label="Поиск по каталогу">
+                </form>
+
+                <button class="icon-btn search-toggle" type="button" aria-label="Открыть поиск" aria-expanded="false" aria-controls="mobile-search">
+                    <svg class="svg-icon" viewBox="0 -2 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="6"></circle>
+                        <path d="M16 16L21 21"></path>
+                    </svg>
+                </button>
+
+                <button class="icon-btn" type="button" data-open-modal="cart-modal" aria-label="Корзина">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 7H20L18.5 16H8L6 7Z"></path>
+                        <path d="M6 7L5.3 4H3"></path>
+                        <circle cx="9" cy="20" r="1.2"></circle>
+                        <circle cx="17" cy="20" r="1.2"></circle>
+                    </svg>
+                    <span class="icon-badge" data-cart-count hidden>0</span>
+                </button>
+
+                <button class="icon-btn" type="button" data-open-modal="favorites-modal" aria-label="Избранное">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 20S4.5 15.5 4.5 9.5C4.5 6.8 6.2 5 8.4 5C10 5 11.2 5.9 12 7.1C12.8 5.9 14 5 15.6 5C17.8 5 19.5 6.8 19.5 9.5C19.5 15.5 12 20 12 20Z"></path>
+                    </svg>
+                    <span class="icon-badge" data-fav-count hidden>0</span>
+                </button>
+
+                <button class="icon-btn" type="button" data-open-modal="profile-modal" aria-label="Мои заказы">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="8" r="3.2"></circle>
+                        <path d="M5.5 20C6.4 16.8 8.8 15.2 12 15.2C15.2 15.2 17.6 16.8 18.5 20"></path>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+        <form class="mobile-search" id="mobile-search" action="search.html" role="search">
+            <div class="search-box">
+                <input type="search" name="q" placeholder="Брошь, серьги, икона…" aria-label="Поиск по каталогу">
+            </div>
+            <button type="submit">Найти</button>
+        </form>
+
+        <nav class="nav" aria-label="Основное меню">
+            <a href="catalog.html">Каталог</a>
+            <a href="services.html">Услуги</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильное меню">
+            <a href="catalog.html">Каталог</a>
+            <a href="services.html">Услуги</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="delivery.html" class="active-link" aria-current="page">Доставка и оплата</a>
+            <a href="catalog.html" class="mobile-order-btn">Сделать заказ</a>
+        </nav>
+    </header>
+    <!-- /@header -->
+
+    <main id="main" class="info-page">
+
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a href="index.html">Главная</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Доставка и оплата</span>
+        </nav>
+
+        <h1 class="gold-line">Доставка и оплата</h1>
+
+        <div class="info-text">
+
+            <h2 id="delivery">Способы доставки</h2>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>Самовывоз</h3>
+                    <p>Из мастерской: г. Ростов, ул. Покровская, 65/17Б. Ежедневно 10:00–18:00, перерыв 12:00–13:00. Бесплатно.</p>
+                </div>
+                <div class="info-card">
+                    <h3>СДЭК</h3>
+                    <p>До пункта выдачи или курьером до двери. Срок — обычно 2–7 дней. Стоимость — по тарифу СДЭК.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Почта России</h3>
+                    <p>В любой населённый пункт России. Срок — обычно 5–14 дней. Стоимость — по тарифу Почты.</p>
+                </div>
+            </div>
+
+            <p>
+                Изделия, которые есть в наличии, отправляем в течение 1–3 рабочих дней после подтверждения заказа.
+                Сроки изготовления индивидуальных заказов согласуем отдельно. Точную стоимость доставки
+                менеджер сообщит при подтверждении заказа — до оплаты.
+            </p>
+            <p>
+                Каждую посылку отправляем с трек-номером, чтобы вы могли следить за доставкой.
+                Если нужна доставка за пределы России — напишите нам, рассчитаем индивидуально.
+            </p>
+
+            <h2 id="packaging">Упаковка и сертификат подлинности</h2>
+            <p>
+                Каждое изделие мы упаковываем в фирменную подарочную коробку — подарок готов сразу, дополнительно
+                упаковывать не нужно. Для пересылки коробку дополнительно защищаем от ударов.
+            </p>
+            <p>
+                К изделию прилагается сертификат подлинности с описанием работы и подписью мастера,
+                а также памятка по уходу за финифтью.
+            </p>
+
+            <h2 id="payment">Оплата</h2>
+            <ul>
+                <li><strong>Онлайн по ссылке.</strong> После подтверждения заказа пришлём ссылку на оплату банковской картой или через СБП.</li>
+                <li><strong>При самовывозе</strong> — наличными или картой в мастерской.</li>
+                <li><strong>Наложенный платёж</strong> — оплата при получении посылки в отделении Почты России или пункте СДЭК (по тарифу службы доставки).</li>
+            </ul>
+            <p>
+                Вместе с заказом вы получаете кассовый чек. Оплачивать заказ до звонка менеджера не нужно.
+            </p>
+
+            <h2>Как оформить заказ</h2>
+            <ol>
+                <li>Откройте карточку товара в <a href="catalog.html">каталоге</a> и нажмите «В корзину».</li>
+                <li>Перейдите в корзину и нажмите «Оформить заказ».</li>
+                <li>Укажите контакты, способ доставки и оплаты.</li>
+                <li>Мы свяжемся с вами в течение рабочего дня, подтвердим заказ и рассчитаем доставку.</li>
+            </ol>
+
+            <p>Обмен и возврат — на странице <a href="returns.html">«Обмен и возврат»</a>.</p>
+
+            <h2>Контакты продавца</h2>
+            <!-- @requisites -->
+            <div class="requisites">
+                Адрес мастерской: г. Ростов, Ярославская обл., ул. Покровская, 65/17Б<br>
+                Телефон: <a href="tel:+79999999999">+7 (999) 999-99-99</a>, e-mail: <a href="mailto:email@finift.ru">email@finift.ru</a>
+            </div>
+            <!-- /@requisites -->
+
+        </div>
+
+    </main>
+
+    <!-- @footer -->
+    <!-- ФУТЕР -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo" aria-label="На главную">
+                    <img src="images/logo-footer.png" alt="Логотип «Ростовская эмаль» — купол с волной" width="146" height="180" loading="lazy">
+                </a>
+                <div class="footer-brand-text">
+                    <p class="footer-brand-name">Ростовская эмаль</p>
+                    <p>Мастерская ростовской финифти: украшения, иконы и сувениры с ручной росписью по эмали.</p>
+                    <p>
+                        <a href="tel:+79999999999">+7 (999) 999-99-99</a><br>
+                        <a href="mailto:email@finift.ru">email@finift.ru</a><br>
+                        г. Ростов, Ярославская обл., ул. Покровская, 65/17Б
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-column">
+                    <h2>Покупателям</h2>
+                    <a href="delivery.html">Доставка и оплата</a>
+                    <a href="returns.html">Обмен и возврат</a>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                    <a href="cookies.html">Cookies</a>
+                </div>
+
+                <div class="footer-column">
+                    <h2>Страницы</h2>
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="services.html">Услуги</a>
+                    <a href="about.html">О нас</a>
+                    <a href="contacts.html">Контакты</a>
+                </div>
+
+                <div class="footer-social">
+                    <h2>Мы в соцсетях</h2>
+                    <div class="social-icons">
+                        <a href="https://vk.com/club238020078" target="_blank" rel="noopener noreferrer" aria-label="Сообщество ВКонтакте"><img src="images/vk-icon.png" alt="" width="30" height="30"></a>
+                        <a href="https://rutube.ru/channel/78386521/" target="_blank" rel="noopener noreferrer" aria-label="Канал на Rutube"><img src="images/rutube-icon.png" alt="" width="30" height="30"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 «Ростовская эмаль». Все права защищены.</p>
+
+        </div>
+    </footer>
+    <!-- /@footer -->
+
+<!-- @modals -->
+<!-- МОДАЛЬНОЕ ОКНО: КОРЗИНА -->
+<dialog class="site-modal" id="cart-modal" aria-labelledby="cart-modal-title">
+    <section class="modal-window">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+
+        <h2 id="cart-modal-title">Корзина</h2>
+        <p class="modal-subtitle">Товары, которые вы выбрали для заказа</p>
+
+        <div class="modal-products" id="cart-items-list"></div>
+
+        <div class="modal-total">
+            <span>Итого:</span>
+            <strong id="cart-total-amount">0 ₽</strong>
+        </div>
+
+        <div class="modal-actions">
+            <a href="checkout.html" class="modal-main-btn" id="cart-checkout-btn">Оформить заказ</a>
+            <button type="button" class="modal-light-btn" data-close-modal>Продолжить покупки</button>
+        </div>
+    </section>
+</dialog>
+
+<!-- МОДАЛЬНОЕ ОКНО: ИЗБРАННОЕ -->
+<dialog class="site-modal" id="favorites-modal" aria-labelledby="favorites-modal-title">
+    <section class="modal-window">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+
+        <h2 id="favorites-modal-title">Избранное</h2>
+        <p class="modal-subtitle">Товары, которые вы сохранили</p>
+
+        <div class="favorites-grid" id="favorites-items-list"></div>
+    </section>
+</dialog>
+
+<!-- МОДАЛЬНОЕ ОКНО: МОИ ЗАКАЗЫ -->
+<dialog class="site-modal profile-modal" id="profile-modal" aria-labelledby="profile-modal-title">
+    <section class="modal-window">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+
+        <h2 id="profile-modal-title">Мои заказы</h2>
+        <p class="modal-subtitle">Регистрация не нужна: заказы, оформленные с этого устройства, сохраняются здесь.</p>
+
+        <div class="orders-list" id="orders-list"></div>
+
+        <p class="profile-note">
+            Вопрос по заказу? Позвоните <a href="tel:+79999999999">+7 (999) 999-99-99</a>
+            или напишите на <a href="mailto:email@finift.ru">email@finift.ru</a>.
+        </p>
+    </section>
+</dialog>
+
+<!-- МОДАЛЬНОЕ ОКНО: СООБЩЕНИЕ -->
+<dialog class="site-modal" id="message-modal" aria-labelledby="message-modal-title">
+    <section class="modal-window">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+        <h2 id="message-modal-title">Сообщение</h2>
+        <p class="modal-text" id="message-modal-text"></p>
+        <div class="modal-actions" id="message-modal-actions">
+            <button type="button" class="modal-main-btn" data-close-modal>Понятно</button>
+        </div>
+    </section>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+    <span id="toast-text"></span>
+    <button type="button" data-open-modal="cart-modal">В корзину</button>
+</div>
+
+<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Уведомление о cookies" hidden>
+    <p>
+        Мы используем файлы cookies, чтобы сайт работал корректно, и сервис Яндекс.Метрика для статистики посещений.
+        Подробнее — в <a href="cookies.html">политике использования cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+        <button type="button" class="btn btn-red" data-cookie="all">Принять</button>
+        <button type="button" class="btn btn-light" data-cookie="necessary">Только необходимые</button>
+    </div>
+</div>
+<!-- /@modals -->
+
+<!-- @scripts -->
+<script src="site-data.js"></script>
+<script src="site.js"></script>
+<script src="cart-favorites.js"></script>
+<script src="search.js"></script>
+<!-- /@scripts -->
+
+</body>
+</html>

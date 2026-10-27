@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /checkout.html
+Disallow: /search.html
+Disallow: /partials/
+Disallow: /data/
+Disallow: /_archive/
+Disallow: /*?
+
+Sitemap: https://rostovskaya-emal.ru/sitemap.xml
