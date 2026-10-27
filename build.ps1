@@ -26,7 +26,8 @@ function Write-Text($path, $text) {
     $full = Join-Path $SiteRoot $path
     $dir = Split-Path $full
     if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Force $dir | Out-Null }
-    [IO.File]::WriteAllText($full, $text, $Utf8)
+    # ConvertTo-Json в Windows PowerShell пишет переводы строк CRLF — приводим всё к LF, как в репозитории
+    [IO.File]::WriteAllText($full, ($text -replace "`r`n", "`n"), $Utf8)
 }
 
 function Escape-Html($value) {
