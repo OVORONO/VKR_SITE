@@ -326,6 +326,10 @@ foreach ($file in $pageFiles) {
     if ($page -eq '404') {
         $root = ([Uri]$config['siteUrl']).AbsolutePath.TrimEnd('/') + '/'
         $html = $html -replace '(<body[^>]*data-root=")[^"]*', "`${1}$root"
+        # ссылки вне общих блоков, записанные от корня домена («/catalog.html»), тоже переводим на корень сайта
+        if ($root -ne '/') {
+            $html = [regex]::Replace($html, '(href|src|action)="/(?!/|' + [regex]::Escape($root.TrimStart('/')) + ')', '$1="' + $root)
+        }
     }
 
     $vars = $config.Clone()
