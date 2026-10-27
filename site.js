@@ -300,14 +300,16 @@
 
     // Отправка на send.php. Если сервер недоступен (например, сайт открыт с диска),
     // предлагаем отправить ту же заявку письмом.
-    function sendForm(form, subject, extraText) {
+    // extraText попадает только в такое письмо, extraFields уходят на сервер.
+    // Результат — ответ сервера ({ ok: true, ... }) или false, если отправить не удалось.
+    function sendForm(form, subject, extraText, extraFields) {
         // Демо для портфолио: ничего не отправляем, сразу показываем успешный сценарий
-        if (DATA.config.demoMode) return Promise.resolve(true);
+        if (DATA.config.demoMode) return Promise.resolve({ ok: true });
 
         const formData = new FormData(form);
         formData.append('subject', subject);
         formData.append('page', location.href);
-        if (extraText) formData.append('details', extraText);
+        Object.keys(extraFields || {}).forEach((key) => formData.append(key, extraFields[key]));
 
         const button = form.querySelector('[type="submit"]');
         if (button) {
@@ -319,10 +321,14 @@
         return fetch(ROOT + 'send.php', { method: 'POST', body: formData, headers: { Accept: 'application/json' } })
             .then((response) => (response.ok ? response.json() : Promise.reject(new Error('http'))))
             .then((json) => {
-                if (json && json.ok) return true;
+                if (json && json.ok) return json;
                 // Сервер отклонил данные — письмом это не исправить, просим поправить форму
                 if (json && (json.error === 'required' || json.error === 'email')) {
                     showServerFieldErrors(form, json.error);
+                    return false;
+                }
+                if (json && json.error === 'order') {
+                    showMessage('Проверьте корзину', 'Каталог мог обновиться: в корзине есть изделие, которого больше нет. Обновите страницу и оформите заказ ещё раз.');
                     return false;
                 }
                 throw new Error('send');

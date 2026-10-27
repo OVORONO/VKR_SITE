@@ -8,16 +8,19 @@
  * Если письма не доходят — уточните у хостинга настройки отправки почты.
  */
 
+// Время в письме и номер заказа — по часовому поясу мастерской
+date_default_timezone_set('Europe/Moscow');
+
 // Форма отправлена скриптом сайта — отвечаем JSON, иначе (JavaScript отключён) — простой страницей
 $isAjax = strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false;
 
-function respond($ok, $error = '')
+function respond($ok, $error = '', $extra = [])
 {
     global $isAjax;
 
     if ($isAjax) {
         header('Content-Type: application/json; charset=utf-8');
-        echo json_encode(['ok' => $ok, 'error' => $error], JSON_UNESCAPED_UNICODE);
+        echo json_encode(['ok' => $ok, 'error' => $error] + $extra, JSON_UNESCAPED_UNICODE);
         exit;
     }
 
@@ -69,6 +72,43 @@ if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     respond(false, 'email');
 }
 
+function formatPrice($amount)
+{
+    return number_format($amount, 0, '', "\u{00A0}") . "\u{00A0}₽";
+}
+
+// Заказ: от браузера берём только id и количество, а названия и цены — из каталога,
+// чтобы состав и сумму в письме нельзя было подменить. Номер заказа тоже даёт сервер.
+$order = null;
+if (isset($_POST['items'])) {
+    $catalog = json_decode(file_get_contents(__DIR__ . '/data/products.json'), true);
+    $products = array_column($catalog['products'] ?? [], null, 'id');
+
+    $items = is_string($_POST['items']) ? json_decode($_POST['items'], true) : null;
+    if (!is_array($items) || !$items || count($items) > 50) {
+        respond(false, 'order');
+    }
+
+    $orderLines = [];
+    $total = 0;
+    foreach ($items as $item) {
+        $id = is_array($item) && is_string($item['id'] ?? null) ? $item['id'] : '';
+        $qty = is_array($item) && is_int($item['qty'] ?? null) ? $item['qty'] : 0;
+        if (!isset($products[$id]) || $qty < 1 || $qty > 99) {
+            respond(false, 'order');
+        }
+
+        $sum = $products[$id]['price'] * $qty;
+        $total += $sum;
+        $orderLines[] = '— ' . $products[$id]['title'] . ' × ' . $qty . ' = ' . formatPrice($sum);
+    }
+
+    $order = [
+        'number' => date('ymd-His') . '-' . random_int(10, 99),
+        'text' => implode("\n", $orderLines) . "\nИтого: " . formatPrice($total),
+    ];
+}
+
 $labels = [
     'topic' => 'Тема',
     'name' => 'Имя',
@@ -79,11 +119,15 @@ $labels = [
     'payment' => 'Оплата',
     'comment' => 'Комментарий',
     'message' => 'Сообщение',
-    'details' => 'Состав заказа',
     'page' => 'Страница',
 ];
 
 $lines = [];
+if ($order) {
+    $lines[] = 'Заказ № ' . $order['number'];
+    $lines[] = $order['text'];
+    $lines[] = '';
+}
 foreach ($labels as $key => $label) {
     $value = field($key, 5000);
     if ($value !== '') {
@@ -92,7 +136,7 @@ foreach ($labels as $key => $label) {
 }
 $lines[] = 'Согласие на обработку персональных данных: получено ' . date('d.m.Y H:i');
 
-$subject = field('subject', 150) ?: 'Сообщение с сайта';
+$subject = $order ? 'Новый заказ № ' . $order['number'] : (field('subject', 150) ?: 'Сообщение с сайта');
 $encodedSubject = '=?UTF-8?B?' . base64_encode($subject . ' — Ростовская эмаль') . '?=';
 
 $host = preg_replace('/[^a-z0-9.\-]/i', '', $_SERVER['HTTP_HOST'] ?? 'localhost');
@@ -107,4 +151,4 @@ if ($email !== '') {
 
 $sent = mail($to, $encodedSubject, implode("\n", $lines), implode("\r\n", $headers));
 
-respond($sent, $sent ? '' : 'mail');
+respond($sent, $sent ? '' : 'mail', $order ? ['number' => $order['number']] : []);

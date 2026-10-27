@@ -74,12 +74,16 @@
             return;
         }
 
-        const number = makeOrderNumber();
-        const orderText = buildOrderText(number, cart);
+        // Свой номер нужен демо-режиму и письму-запасному варианту; сервер присвоит собственный
+        const localNumber = makeOrderNumber();
+        const orderText = buildOrderText(localNumber, cart);
+        // Состав и сумму сервер пересчитает по каталогу — отправляем только id и количество
+        const items = JSON.stringify(cart.map((item) => ({ id: item.id, qty: item.qty })));
 
-        UI.sendForm(form, 'Новый заказ № ' + number, orderText).then((sent) => {
-            if (!sent) return;
+        UI.sendForm(form, 'Новый заказ № ' + localNumber, orderText, { items: items }).then((result) => {
+            if (!result) return;
 
+            const number = result.number || localNumber;
             Cart.addOrder({
                 number: number,
                 date: new Date().toLocaleDateString('ru-RU'),
