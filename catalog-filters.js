@@ -37,11 +37,12 @@
         return parseInt(card.dataset.price, 10) || 0;
     }
 
+    // Диапазоны те же, что в фильтре: берутся из data/products.json через site-data.js
+    const PRICE_RANGES = window.SiteUI.data.prices || [];
+
     function getPriceRange(price) {
-        if (price <= 5000) return 'to-5000';
-        if (price <= 10000) return '5000-10000';
-        if (price <= 20000) return '10000-20000';
-        return 'from-20000';
+        const range = PRICE_RANGES.find((item) => price >= item.min && price <= item.max);
+        return range ? range.id : '';
     }
 
     function plural(count, one, few, many) {

@@ -250,6 +250,7 @@ $jsData = [ordered]@{
     categories = $data.categories
     collections = $data.collections
     materials = $data.materials
+    prices = $data.prices
     products = @($products | ForEach-Object {
         [ordered]@{
             id = $_.id
