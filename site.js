@@ -273,6 +273,31 @@
         return lines.join('\n');
     }
 
+    // Ошибки, которые нашёл send.php: подсвечиваем поля так же, как при проверке в браузере
+    function showServerFieldErrors(form, error) {
+        const checks = error === 'email'
+            ? [['email', (field) => field.value.trim(), 'Проверьте адрес почты']]
+            : [
+                ['name', (field) => !field.value.trim(), 'Заполните это поле'],
+                ['phone', (field) => !field.value.trim(), 'Заполните это поле'],
+                ['consent', (field) => !field.checked, 'Нужно ваше согласие']
+            ];
+        let firstInvalid = null;
+
+        checks.forEach(([name, isInvalid, message]) => {
+            const field = form.querySelector('[name="' + name + '"]');
+            if (!field || !isInvalid(field)) return;
+            setFieldError(field, message);
+            if (!firstInvalid) firstInvalid = field;
+        });
+
+        if (firstInvalid) {
+            firstInvalid.focus();
+        } else {
+            showMessage('Проверьте форму', 'Заполните имя и телефон, отметьте согласие на обработку данных и отправьте заявку ещё раз.');
+        }
+    }
+
     // Отправка на send.php. Если сервер недоступен (например, сайт открыт с диска),
     // предлагаем отправить ту же заявку письмом.
     function sendForm(form, subject, extraText) {
@@ -291,8 +316,13 @@
         return fetch(ROOT + 'send.php', { method: 'POST', body: formData, headers: { Accept: 'application/json' } })
             .then((response) => (response.ok ? response.json() : Promise.reject(new Error('http'))))
             .then((json) => {
-                if (!json || !json.ok) throw new Error('send');
-                return true;
+                if (json && json.ok) return true;
+                // Сервер отклонил данные — письмом это не исправить, просим поправить форму
+                if (json && (json.error === 'required' || json.error === 'email')) {
+                    showServerFieldErrors(form, json.error);
+                    return false;
+                }
+                throw new Error('send');
             })
             .catch(() => {
                 const body = formToText(form) + (extraText ? '\n\n' + extraText : '');
