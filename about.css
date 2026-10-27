@@ -73,16 +73,24 @@
 /* СИНИЙ БЛОК: О НАС + АССОРТИМЕНТ */
 
 .about-blue-section {
+    --pad-top: 105px;  /* отступы нужны линиям, чтобы выходить к краям секции */
+    --pad-x: 135px;
+    --pad-bottom: 110px;
     width: 100%;
     min-height: 870px;
     position: relative;
     background: var(--blue);
     color: #ffffff;
-    padding: 105px 135px 110px;
+    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    /* линии занимают свои ячейки, поэтому текст под них не попадает */
+    grid-template-areas:
+        "about corner"
+        "about assortment"
+        "wave-left assortment";
+    grid-template-rows: auto 1fr auto;
     column-gap: 250px;
-    align-items: center;
 }
 
 .blue-text-block {
@@ -92,12 +100,14 @@
 }
 
 .blue-about-text {
+    grid-area: about;
     align-self: start;
 }
 
 .blue-assortment-text {
+    grid-area: assortment;
     align-self: end;
-    margin-top: 265px;
+    margin-top: 40px;
 }
 
 .blue-text-block h1,
@@ -163,8 +173,10 @@
 /* ЧТО ТАКОЕ ФИНИФТЬ */
 
 .finift-section {
+    --pad-x: 135px;
+    --pad-bottom: 95px;
     min-height: 735px;
-    padding: 105px 135px 95px;
+    padding: 105px var(--pad-x) var(--pad-bottom);
     display: grid;
     grid-template-columns: 1.08fr 0.92fr;
     gap: 125px;
@@ -312,6 +324,17 @@
     z-index: 1;
 }
 
+.wave path {
+    vector-effect: non-scaling-stroke; /* толщина линии не зависит от ширины экрана */
+}
+
+/* линии выходят за ячейку сетки к краям секции — общее ограничение svg им мешает */
+.wave-blue-top,
+.wave-blue-left,
+.wave-finift {
+    max-width: none;
+}
+
 .wave-white {
     stroke: rgba(255, 255, 255, 0.55);
 }
@@ -320,25 +343,34 @@
     stroke: var(--blue-light);
 }
 
+/* Линии синего блока стоят в сетке: в правом верхнем углу (над «Ассортиментом»)
+   и в левом нижнем (под «О нас»), а отрицательные отступы выводят их к краям секции */
 .wave-blue-top {
-    width: 640px;
-    height: 365px;
-    top: 0;
-    right: -18px;
+    grid-area: corner;
+    position: relative;
+    justify-self: end;
+    width: calc(100% + var(--pad-x));
+    height: auto;
+    margin: calc(-1 * var(--pad-top)) calc(-1 * var(--pad-x)) 0 0;
 }
 
 .wave-blue-left {
-    width: 650px;
-    height: 305px;
-    left: -15px;
-    bottom: -5px;
+    grid-area: wave-left;
+    position: relative;
+    align-self: end;
+    width: calc(100% + var(--pad-x) + 15px);
+    height: auto;
+    margin: 30px 0 calc(-1 * var(--pad-bottom) - 5px) calc(-1 * var(--pad-x) - 15px);
 }
 
+/* Полоса под текстом и фото на всю ширину секции; справа уходит под фото */
 .wave-finift {
-    width: 1220px;
-    height: 465px;
-    left: 0;
-    bottom: 10px;
+    grid-row: 2;
+    grid-column: 1 / -1;
+    position: relative;
+    width: calc(100% + 2 * var(--pad-x));
+    height: 200px;
+    margin: -60px calc(-1 * var(--pad-x)) calc(-1 * var(--pad-bottom) + 10px);
 }
 
 .wave-master {
@@ -351,12 +383,15 @@
 /* АДАПТИВ */
 
 @media (max-width: 1300px) {
-    .about-blue-section,
-    .finift-section,
     .technology-section,
     .masterclass-section {
         padding-left: 75px;
         padding-right: 75px;
+    }
+
+    .about-blue-section,
+    .finift-section {
+        --pad-x: 75px;
     }
 
     .about-blue-section {
@@ -378,22 +413,26 @@
     }
 
     .about-blue-section {
+        --pad-top: 80px;
+        --pad-bottom: 80px;
         min-height: auto;
-        padding-top: 80px;
-        padding-bottom: 80px;
         column-gap: 70px;
-    }
-
-    .blue-assortment-text {
-        margin-top: 160px;
     }
 
     .finift-section,
     .technology-section,
     .masterclass-section {
         gap: 60px;
+    }
+
+    .technology-section,
+    .masterclass-section {
         padding-left: 45px;
         padding-right: 45px;
+    }
+
+    .finift-section {
+        --pad-x: 45px;
     }
 
     .image-shadow-wrap img {

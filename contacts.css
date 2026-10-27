@@ -52,12 +52,13 @@
 }
 
 .contacts-inner {
+    --pad-x: 88px;
     position: relative;
     z-index: 3;
     width: 100%;
     max-width: 1320px;
     margin: 0 auto;
-    padding: 0 88px;
+    padding: 0 var(--pad-x);
 }
 
 .contacts-inner h2 {
@@ -127,6 +128,7 @@
     color: #ffffff;
     border-radius: 14px;
     scroll-margin-top: 120px;
+    grid-row: 1 / span 2; /* слева под карточками остаётся место для линии */
 }
 
 .contact-form h3 {
@@ -191,21 +193,30 @@
 /* ДЕКОРАТИВНЫЕ ЛИНИИ */
 
 .wave {
-    position: absolute;
     fill: none;
     stroke: var(--blue-light);
     stroke-width: 6;
     stroke-linecap: round;
     stroke-linejoin: round;
     pointer-events: none;
-    z-index: 1;
 }
 
+.wave path {
+    vector-effect: non-scaling-stroke; /* толщина линии не зависит от ширины экрана */
+}
+
+/* Линия стоит в сетке под карточками контактов, поэтому не заходит на текст и форму.
+   Отрицательные отступы выводят её к левому краю экрана и в нижний отступ секции */
 .wave-left {
-    left: -10px;
-    bottom: 48px;
-    width: 660px;
-    height: 355px;
+    --bleed: calc(var(--pad-x) + max(0px, (100vw - 1320px) / 2) + 10px);
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end;
+    display: block;
+    max-width: none; /* иначе общее ограничение svg не даст выйти к краю экрана */
+    width: calc(100% + var(--bleed));
+    height: auto;
+    margin: 30px 0 -72px calc(-1 * var(--bleed));
 }
 
 /* АДАПТИВ */
@@ -216,7 +227,7 @@
     }
 
     .contacts-inner {
-        padding: 0 55px;
+        --pad-x: 55px;
     }
 
     .map-box {
@@ -243,7 +254,7 @@
     }
 
     .contacts-inner {
-        padding: 0 16px;
+        --pad-x: 16px;
     }
 
     .contacts-grid {
@@ -255,10 +266,16 @@
         font-size: 25px;
     }
 
+    /* в одну колонку линия уходит под форму */
+    .contact-form,
     .wave-left {
-        opacity: 0.45;
-        width: 540px;
-        bottom: 15px;
+        grid-row: auto;
+    }
+
+    .wave-left {
+        margin-top: -20px; /* верх рисунка пустой, линии всё равно начинаются ниже формы */
+        margin-bottom: -65px;
+        stroke-width: 4;
     }
 }
 
