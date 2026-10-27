@@ -764,6 +764,11 @@ h3,
     line-height: 1.5;
 }
 
+.footer-demo {
+    width: 100%;      /* плашка демо-версии — отдельной строкой */
+    color: #c9a24a;
+}
+
 /* МОДАЛЬНЫЕ ОКНА (dialog) */
 
 body.modal-is-open {

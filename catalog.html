@@ -79,10 +79,10 @@
                     <span class="icon-badge" data-fav-count hidden>0</span>
                 </button>
 
-                <button class="icon-btn" type="button" data-open-modal="profile-modal" aria-label="Мои заказы">
+                <button class="icon-btn" type="button" data-open-modal="profile-modal" aria-label="Заказы на этом устройстве">
                     <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="12" cy="8" r="3.2"></circle>
-                        <path d="M5.5 20C6.4 16.8 8.8 15.2 12 15.2C15.2 15.2 17.6 16.8 18.5 20"></path>
+                        <path d="M6.5 3.5H17.5V20.5L15.3 19L13.1 20.5L10.9 19L8.7 20.5L6.5 19Z"></path>
+                        <path d="M9.5 8H14.5M9.5 11.5H14.5M9.5 15H12.5"></path>
                     </svg>
                 </button>
             </div>
@@ -839,6 +839,7 @@
 
         <div class="footer-bottom">
             <p>© 2026 «Ростовская эмаль». Все права защищены.</p>
+            <p class="footer-demo">Учебный проект для портфолио: магазин не принимает заказы, контакты условные.</p>
 
         </div>
     </footer>
@@ -879,13 +880,13 @@
     </section>
 </dialog>
 
-<!-- МОДАЛЬНОЕ ОКНО: МОИ ЗАКАЗЫ -->
+<!-- МОДАЛЬНОЕ ОКНО: ЗАКАЗЫ НА ЭТОМ УСТРОЙСТВЕ -->
 <dialog class="site-modal profile-modal" id="profile-modal" aria-labelledby="profile-modal-title">
     <section class="modal-window">
         <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
 
-        <h2 id="profile-modal-title">Мои заказы</h2>
-        <p class="modal-subtitle">Регистрация не нужна: заказы, оформленные с этого устройства, сохраняются здесь.</p>
+        <h2 id="profile-modal-title">Заказы на этом устройстве</h2>
+        <p class="modal-subtitle">Личного кабинета нет: заказы хранятся только в этом браузере. На другом устройстве или после очистки данных браузера их не будет.</p>
 
         <div class="orders-list" id="orders-list"></div>
 

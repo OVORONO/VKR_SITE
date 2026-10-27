@@ -245,6 +245,7 @@ $jsData = [ordered]@{
         email = $site.email
         vk = $site.vk
         yandexMetrikaId = $site.yandexMetrikaId
+        demoMode = [bool]$site.demoMode
     }
     categories = $data.categories
     collections = $data.collections

@@ -301,6 +301,9 @@
     // Отправка на send.php. Если сервер недоступен (например, сайт открыт с диска),
     // предлагаем отправить ту же заявку письмом.
     function sendForm(form, subject, extraText) {
+        // Демо для портфолио: ничего не отправляем, сразу показываем успешный сценарий
+        if (DATA.config.demoMode) return Promise.resolve(true);
+
         const formData = new FormData(form);
         formData.append('subject', subject);
         formData.append('page', location.href);
@@ -376,7 +379,9 @@
                 sendForm(form, subject).then((sent) => {
                     if (!sent) return;
                     form.reset();
-                    showMessage('Спасибо!', 'Сообщение отправлено. Мы ответим в течение рабочего дня.');
+                    showMessage('Спасибо!', DATA.config.demoMode
+                        ? 'Это демо-версия сайта: сообщение никуда не отправлено. В настоящем магазине его получила бы мастерская.'
+                        : 'Сообщение отправлено. Мы ответим в течение рабочего дня.');
                 });
             });
         });

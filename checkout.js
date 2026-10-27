@@ -90,9 +90,14 @@
 
             layout.hidden = true;
             doneBlock.hidden = false;
-            document.getElementById('checkout-done-text').textContent =
-                'Номер заказа: ' + number + '. Мы свяжемся с вами в течение рабочего дня, чтобы подтвердить заказ и согласовать доставку. ' +
-                'Заказ сохранён в разделе «Мои заказы» (иконка профиля в шапке).';
+            if (UI.data.config.demoMode) {
+                document.getElementById('checkout-done-title').textContent = 'Заказ оформлен (демо-режим)';
+            }
+            document.getElementById('checkout-done-text').textContent = 'Номер заказа: ' + number + '. ' +
+                (UI.data.config.demoMode
+                    ? 'Это демо-версия сайта, поэтому заказ никуда не отправлен. '
+                    : 'Мы свяжемся с вами в течение рабочего дня, чтобы подтвердить заказ и согласовать доставку. ') +
+                'Заказ сохранён в разделе «Заказы на этом устройстве» (иконка с чеком в шапке).';
             doneBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
     });
