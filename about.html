@@ -137,15 +137,17 @@
 
         <section class="about-blue-section" id="history">
             <svg class="wave wave-white wave-blue-top" viewBox="0 0 620 350" aria-hidden="true">
-                <path d="M540 0 C470 55 455 130 500 185 C540 235 590 250 620 340"/>
-                <path d="M500 0 C420 70 410 145 455 205 C500 265 565 280 620 350"/>
-                <path d="M460 0 C370 85 370 165 420 230 C470 295 550 310 620 360"/>
+                <defs><path id="wave-about-top" d="M500 -90 C400 40 420 150 500 210 C560 255 620 270 720 300"/></defs>
+                <use class="wave-band" href="#wave-about-top"/>
+                <use class="wave-gap" href="#wave-about-top"/>
+                <use class="wave-mid" href="#wave-about-top"/>
             </svg>
 
             <svg class="wave wave-white wave-blue-left" viewBox="0 0 640 300" aria-hidden="true">
-                <path d="M0 30 C110 120 220 115 345 105 C455 95 535 120 640 260"/>
-                <path d="M0 80 C110 160 225 155 350 145 C460 135 535 160 640 300"/>
-                <path d="M0 130 C115 205 225 200 355 190 C465 182 540 205 640 340"/>
+                <defs><path id="wave-about-left" d="M-90 70 C120 150 250 140 380 140 C490 140 540 190 560 390"/></defs>
+                <use class="wave-band" href="#wave-about-left"/>
+                <use class="wave-gap" href="#wave-about-left"/>
+                <use class="wave-mid" href="#wave-about-left"/>
             </svg>
 
             <div class="blue-text-block blue-about-text">
@@ -181,10 +183,11 @@
         </section>
 
         <section class="finift-section white-section">
-            <svg class="wave wave-blue wave-finift" viewBox="100 50 1030 430" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M0 245 C210 360 380 350 540 315 C720 275 845 210 1130 35"/>
-                <path d="M0 300 C210 415 385 405 555 370 C735 330 865 265 1130 100"/>
-                <path d="M0 355 C215 470 390 460 565 425 C760 385 900 325 1130 170"/>
+            <svg class="wave wave-blue wave-finift" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+                <defs><path id="wave-finift" d="M-50 150 C250 172 480 150 680 112 C840 82 940 64 1050 56"/></defs>
+                <use class="wave-band" href="#wave-finift"/>
+                <use class="wave-gap" href="#wave-finift"/>
+                <use class="wave-mid" href="#wave-finift"/>
             </svg>
 
             <div class="section-text finift-text">
@@ -265,10 +268,11 @@
         </section>
 
         <section class="masterclass-section white-section" id="masterclass">
-            <svg class="wave wave-blue wave-master" viewBox="0 80 1800 260" aria-hidden="true">
-                <path d="M0 80 C270 135 455 130 675 80 C900 30 1085 60 1260 75 C1455 92 1620 50 1800 70"/>
-                <path d="M0 135 C275 190 465 185 685 135 C905 85 1090 115 1270 130 C1460 148 1625 105 1800 125"/>
-                <path d="M0 190 C280 245 470 240 695 190 C915 140 1100 170 1280 185 C1470 203 1635 160 1800 180"/>
+            <svg class="wave wave-blue wave-master" viewBox="0 0 1800 170" preserveAspectRatio="none" aria-hidden="true">
+                <defs><path id="wave-master" d="M-50 75 C300 115 520 115 760 75 C1000 35 1180 45 1380 70 C1560 92 1700 70 1850 60"/></defs>
+                <use class="wave-band" href="#wave-master"/>
+                <use class="wave-gap" href="#wave-master"/>
+                <use class="wave-mid" href="#wave-master"/>
             </svg>
 
             <div class="section-text master-text">

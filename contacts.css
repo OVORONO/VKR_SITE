@@ -190,23 +190,9 @@
     cursor: wait;
 }
 
-/* ДЕКОРАТИВНЫЕ ЛИНИИ */
-
-.wave {
-    fill: none;
-    stroke: var(--blue-light);
-    stroke-width: 6;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    pointer-events: none;
-}
-
-.wave path {
-    vector-effect: non-scaling-stroke; /* толщина линии не зависит от ширины экрана */
-}
-
-/* Линия стоит в сетке под карточками контактов, поэтому не заходит на текст и форму.
-   Отрицательные отступы выводят её к левому краю экрана и в нижний отступ секции */
+/* ДЕКОРАТИВНЫЕ ЛИНИИ (общий вид — в common.css)
+   Стоят в сетке под карточками контактов, поэтому не заходят на текст и форму.
+   Отрицательные отступы выводят их к левому краю экрана и к нижнему краю секции */
 .wave-left {
     --bleed: calc(var(--pad-x) + max(0px, (100vw - 1320px) / 2) + 10px);
     grid-column: 1;
@@ -216,7 +202,7 @@
     max-width: none; /* иначе общее ограничение svg не даст выйти к краю экрана */
     width: calc(100% + var(--bleed));
     height: auto;
-    margin: 30px 0 -72px calc(-1 * var(--bleed));
+    margin: 30px 0 -120px calc(-1 * var(--bleed)); /* -120px — нижний отступ секции */
 }
 
 /* АДАПТИВ */
@@ -273,9 +259,10 @@
     }
 
     .wave-left {
+        --line: 4px;
+        --gap: 26px;
         margin-top: -20px; /* верх рисунка пустой, линии всё равно начинаются ниже формы */
-        margin-bottom: -65px;
-        stroke-width: 4;
+        margin-bottom: -80px; /* нижний отступ секции */
     }
 }
 

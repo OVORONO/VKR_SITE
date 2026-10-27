@@ -116,12 +116,6 @@
 
     <main id="main" class="catalog-page">
 
-        <svg class="catalog-pattern" viewBox="0 0 330 520" aria-hidden="true">
-            <path d="M-20 20 C120 90 150 190 90 280 C40 360 80 450 200 520"/>
-            <path d="M-20 70 C150 140 190 240 130 330 C80 410 120 490 250 560"/>
-            <path d="M-20 120 C180 190 230 290 170 380 C120 460 160 530 300 600"/>
-        </svg>
-
         <aside class="catalog-sidebar">
 
             <h1>Каталог</h1>
@@ -180,6 +174,13 @@
 
                 <button type="button" class="reset-filters" id="reset-filters">Сбросить фильтры</button>
             </div>
+
+            <svg class="wave catalog-pattern" viewBox="0 0 330 600" aria-hidden="true">
+                <defs><path id="wave-catalog" d="M-60 80 C250 160 290 430 -60 540"/></defs>
+                <use class="wave-band" href="#wave-catalog"/>
+                <use class="wave-gap" href="#wave-catalog"/>
+                <use class="wave-mid" href="#wave-catalog"/>
+            </svg>
 
         </aside>
 

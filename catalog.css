@@ -1,10 +1,11 @@
 /* СТРАНИЦА КАТАЛОГА */
 
 .catalog-page {
+    --pad-x: 70px;
     width: 100%;
     min-height: 100vh;
     position: relative;
-    padding: 80px 70px 80px;
+    padding: 80px var(--pad-x) 80px;
     display: grid;
     grid-template-columns: 260px 1fr;
     gap: 45px;
@@ -12,18 +13,14 @@
     overflow: hidden;
 }
 
+/* Узор под фильтрами (общий вид — в common.css): стоит в колонке после них,
+   поэтому не заходит на текст, а оба конца уходят за левый край страницы */
 .catalog-pattern {
-    position: absolute;
-    left: 0;
-    top: 520px;
-    width: 300px;
+    display: block;
+    max-width: none;
+    width: calc(100% + var(--pad-x));
     height: auto;
-    z-index: 0;
-    pointer-events: none;
-    fill: none;
-    stroke: var(--blue-light);
-    stroke-width: 6;
-    stroke-linecap: round;
+    margin: 40px 0 0 calc(-1 * var(--pad-x));
     opacity: 0.5;
 }
 
@@ -319,17 +316,14 @@
 
 @media (max-width: 1100px) {
     .catalog-page {
-        padding: 60px 35px 70px;
+        --pad-x: 35px;
+        padding: 60px var(--pad-x) 70px;
         grid-template-columns: 220px 1fr;
         gap: 30px;
     }
 
     .catalog-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .catalog-pattern {
-        width: 240px;
     }
 }
 

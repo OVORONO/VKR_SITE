@@ -769,6 +769,38 @@ h3,
     color: #c9a24a;
 }
 
+/* ДЕКОРАТИВНЫЕ ЛИНИИ
+   Три линии строятся из одной средней кривой: широкий штрих цвета линии,
+   поверх него штрих цвета фона чуть уже, а посередине тонкая линия.
+   Края выходят строго параллельными, на одинаковом расстоянии на любом экране,
+   поэтому линии не сходятся и не пересекаются. Концы кривой выведены за края рисунка. */
+.wave {
+    --line: 6px;            /* толщина линии */
+    --gap: 38px;            /* расстояние между соседними линиями (по центрам) */
+    --wave-bg: #ffffff;     /* цвет фона под рисунком */
+    fill: none;
+    stroke: var(--blue-light);
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.wave path {
+    vector-effect: non-scaling-stroke; /* толщина и расстояние не зависят от масштаба рисунка */
+}
+
+.wave .wave-band {
+    stroke-width: calc(2 * var(--gap) + var(--line));
+}
+
+.wave .wave-gap {
+    stroke: var(--wave-bg);
+    stroke-width: calc(2 * var(--gap) - var(--line));
+}
+
+.wave .wave-mid {
+    stroke-width: var(--line);
+}
+
 /* МОДАЛЬНЫЕ ОКНА (dialog) */
 
 body.modal-is-open {
