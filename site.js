@@ -31,6 +31,14 @@
         }
     }
 
+    function storageRemove(key) {
+        try {
+            localStorage.removeItem(key);
+        } catch {
+            // хранилище недоступно
+        }
+    }
+
     /* ---------- Модальные окна ---------- */
 
     function openModal(id) {
@@ -184,6 +192,15 @@
     function bindCookieBanner() {
         const banner = document.getElementById('cookie-banner');
         const consent = storageGet(COOKIE_KEY);
+
+        // cookies.html: «Сбросить мой выбор» — плашка с выбором появится снова
+        const reset = document.getElementById('reset-cookie-choice');
+        if (reset) {
+            reset.addEventListener('click', () => {
+                storageRemove(COOKIE_KEY);
+                location.reload();
+            });
+        }
 
         if (consent === 'all') loadMetrika();
         if (!banner || consent) return;
