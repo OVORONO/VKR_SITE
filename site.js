@@ -336,7 +336,7 @@
         }
 
         return fetch(ROOT + 'send.php', { method: 'POST', body: formData, headers: { Accept: 'application/json' } })
-            .then((response) => (response.ok ? response.json() : Promise.reject(new Error('http'))))
+            .then((response) => (response.ok || response.status === 429 ? response.json() : Promise.reject(new Error('http'))))
             .then((json) => {
                 if (json && json.ok) return json;
                 // Сервер отклонил данные — письмом это не исправить, просим поправить форму
@@ -346,6 +346,11 @@
                 }
                 if (json && json.error === 'order') {
                     showMessage('Проверьте корзину', 'Каталог мог обновиться: в корзине есть изделие, которого больше нет. Обновите страницу и оформите заказ ещё раз.');
+                    return false;
+                }
+                // send.php ограничивает число заявок с одного адреса
+                if (json && json.error === 'rate') {
+                    showMessage('Слишком много заявок', 'С вашего адреса уже отправлено несколько заявок подряд. Попробуйте через 10 минут или позвоните нам: ' + DATA.config.phone + '.');
                     return false;
                 }
                 throw new Error('send');

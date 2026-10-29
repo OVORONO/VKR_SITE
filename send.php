@@ -8,8 +8,15 @@
  * Если письма не доходят — уточните у хостинга настройки отправки почты.
  */
 
+// Ошибки PHP — только в журнал сервера: на странице они могут раскрыть пути к файлам
+ini_set('display_errors', '0');
+
 // Время в письме и номер заказа — по часовому поясу мастерской
 date_default_timezone_set('Europe/Moscow');
+
+// Не больше RATE_LIMIT заявок за RATE_WINDOW секунд с одного IP — защита почты от спама
+const RATE_LIMIT = 5;
+const RATE_WINDOW = 600;
 
 // Форма отправлена скриптом сайта — отвечаем JSON, иначе (JavaScript отключён) — простой страницей
 $isAjax = strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false;
@@ -54,7 +61,12 @@ if (!$to) {
 
 function field($name, $max = 2000)
 {
-    $value = trim((string)($_POST[$name] ?? ''));
+    // name[]=… и прочие массивы вместо строки — просто пустое значение
+    $value = $_POST[$name] ?? '';
+    if (!is_string($value)) {
+        return '';
+    }
+    $value = trim($value);
     $value = str_replace(["\r", "\0"], '', $value);
     return mb_substr($value, 0, $max);
 }
@@ -139,7 +151,8 @@ $lines[] = 'Согласие на обработку персональных д
 $subject = $order ? 'Новый заказ № ' . $order['number'] : (field('subject', 150) ?: 'Сообщение с сайта');
 $encodedSubject = '=?UTF-8?B?' . base64_encode($subject . ' — Ростовская эмаль') . '?=';
 
-$host = preg_replace('/[^a-z0-9.\-]/i', '', $_SERVER['HTTP_HOST'] ?? 'localhost');
+// Домен отправителя — из настроек сайта, а не из заголовка Host, который присылает браузер
+$host = preg_replace('/[^a-z0-9.\-]/i', '', parse_url($site['siteUrl'] ?? '', PHP_URL_HOST) ?: ($_SERVER['HTTP_HOST'] ?? 'localhost'));
 $headers = [
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=utf-8',
@@ -147,6 +160,46 @@ $headers = [
 ];
 if ($email !== '') {
     $headers[] = 'Reply-To: ' . $email;
+}
+
+// Считаем только заявки, прошедшие проверку: опечатка в форме лимит не тратит.
+// Отметки времени лежат во временной папке сервера, IP хранится только в виде хэша.
+function rateLimited()
+{
+    $dir = sys_get_temp_dir() . '/rostov-emal-send';
+    if (!is_dir($dir) && !@mkdir($dir, 0700, true)) {
+        return false; // нет доступа к временной папке — не мешаем отправке
+    }
+
+    $file = $dir . '/' . hash('sha256', $_SERVER['REMOTE_ADDR'] ?? '') . '.json';
+    $handle = @fopen($file, 'c+');
+    if (!$handle) {
+        return false;
+    }
+
+    flock($handle, LOCK_EX);
+    $now = time();
+    $stamps = json_decode(stream_get_contents($handle), true);
+    $stamps = array_values(array_filter(is_array($stamps) ? $stamps : [], function ($time) use ($now) {
+        return is_int($time) && $time > $now - RATE_WINDOW;
+    }));
+
+    $limited = count($stamps) >= RATE_LIMIT;
+    if (!$limited) {
+        $stamps[] = $now;
+        ftruncate($handle, 0);
+        rewind($handle);
+        fwrite($handle, json_encode($stamps));
+    }
+    flock($handle, LOCK_UN);
+    fclose($handle);
+
+    return $limited;
+}
+
+if (rateLimited()) {
+    http_response_code(429);
+    respond(false, 'rate');
 }
 
 $sent = mail($to, $encodedSubject, implode("\n", $lines), implode("\r\n", $headers));
