@@ -66,6 +66,7 @@
 | Шаблоны | `partials/` |
 | Отправка форм | `send.php` |
 | Проверка вёрстки | `tools/wave-check.js` |
+| Тесты `send.php` (PHP в WebAssembly) | `tools/send-test.mjs` — как запустить, написано в начале файла |
 | Скриншоты для README | `docs/screenshots/` |
 
 ## Как запустить
