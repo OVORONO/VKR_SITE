@@ -316,6 +316,33 @@ $localBusiness = [ordered]@{
 }
 $localBusinessJson = $localBusiness | ConvertTo-Json -Depth 5
 
+# Версия у ссылок на стили и скрипты (about.css?v=1a2b3c4d) — хэш содержимого файла.
+# Файл изменился — изменился адрес, и браузер сразу берёт новую копию, не дожидаясь, пока устареет кэш.
+$assetVersions = @{}
+$basePath = ([Uri]$config['siteUrl']).AbsolutePath.TrimEnd('/') + '/'
+
+function Add-AssetVersions([string]$html, [string]$relative) {
+    $pageDir = Split-Path (Join-Path $SiteRoot $relative)
+    return [regex]::Replace($html, '(href|src)="([^":?#]+\.(?:css|js))(?:\?v=[0-9a-f]+)?"', {
+        param($m)
+        $url = $m.Groups[2].Value
+        if ($url.StartsWith($basePath)) {
+            $file = Join-Path $SiteRoot $url.Substring($basePath.Length)
+        } elseif ($url.StartsWith('/')) {
+            return $m.Value
+        } else {
+            $file = Join-Path $pageDir $url
+        }
+        $file = [IO.Path]::GetFullPath($file)
+        if (-not (Test-Path $file)) { return $m.Value }
+        if (-not $assetVersions.ContainsKey($file)) {
+            $hash = [Security.Cryptography.MD5]::Create().ComputeHash([IO.File]::ReadAllBytes($file))
+            $assetVersions[$file] = ([BitConverter]::ToString($hash) -replace '-', '').Substring(0, 8).ToLower()
+        }
+        return $m.Groups[1].Value + '="' + $url + '?v=' + $assetVersions[$file] + '"'
+    })
+}
+
 foreach ($file in $pageFiles) {
     $relative = $file.FullName.Substring($SiteRoot.Length).TrimStart('\')
     $html = Read-Text $relative
@@ -352,7 +379,7 @@ foreach ($file in $pageFiles) {
         })
         $html = Set-Region $html $name (Fill-Template $block $vars)
     }
-    Write-Text $relative $html
+    Write-Text $relative (Add-AssetVersions $html $relative)
 }
 
 Write-Host ("Готово: страниц обновлено — {0}, товаров — {1}." -f $pageFiles.Count, $products.Count)
