@@ -165,7 +165,8 @@
     margin-bottom: 12px;
 }
 
-.section-text a {
+/* ссылки в тексте; кнопки-ссылки (.master-btn) оформлены отдельно */
+.section-text a:not(.master-btn) {
     color: var(--blue);
     text-decoration: underline;
 }
