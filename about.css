@@ -167,7 +167,7 @@
 
 /* ссылки в тексте; кнопки-ссылки (.master-btn) оформлены отдельно */
 .section-text a:not(.master-btn) {
-    color: var(--blue);
+    color: var(--blue-text);
     text-decoration: underline;
 }
 

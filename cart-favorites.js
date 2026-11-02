@@ -351,6 +351,14 @@
         }
     });
 
+    // Пользователь удалил свои данные (страница «Cookies» или окно заказов) — обновляем счётчики и списки
+    document.addEventListener('site:data-cleared', () => {
+        renderCart();
+        renderFavorites();
+        renderOrders();
+        syncProductHearts();
+    });
+
     window.SiteCart = {
         loadCart,
         clearCart,

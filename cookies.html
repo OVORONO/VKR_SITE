@@ -7,9 +7,9 @@
     <meta name="description" content="Какие файлы cookies и данные браузера использует сайт мастерской «Ростовская эмаль» и как от них отказаться.">
 
     <!-- @head -->
-    <!-- Откуда странице можно загружать скрипты, стили и картинки: только с сайта и из Яндекс.Метрики.
+    <!-- Откуда странице можно загружать скрипты, стили и картинки: только с сайта и из Яндекс.Метрики, карту — с yandex.ru.
          Встроенные скрипты и стили запрещены — внедрённый код не запустится -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mc.yandex.ru https://yastatic.net; style-src 'self'; img-src 'self' data: https://mc.yandex.ru; font-src 'self'; connect-src 'self' https://mc.yandex.ru; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mc.yandex.ru https://yastatic.net; style-src 'self'; img-src 'self' data: https://mc.yandex.ru; font-src 'self'; connect-src 'self' https://mc.yandex.ru; frame-src https://yandex.ru; object-src 'none'; base-uri 'self'; form-action 'self'">
     <link rel="canonical" href="https://ovorono.github.io/VKR_SITE/cookies.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ростовская эмаль">
@@ -25,10 +25,10 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#3570d6">
     <link rel="preload" href="fonts/pt-sans-400-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="fonts/fonts.css?v=474ea6ac">
-    <link rel="stylesheet" href="common.css?v=15ae6d5c">
+    <link rel="stylesheet" href="fonts/fonts.css?v=ee530aba">
+    <link rel="stylesheet" href="common.css?v=4896d3f0">
     <!-- /@head -->
-    <link rel="stylesheet" href="info.css?v=f01173ce">
+    <link rel="stylesheet" href="info.css?v=bdfd9663">
 </head>
 <body data-page="cookies">
 
@@ -130,8 +130,8 @@
         <div class="info-text">
 
             <p>
-                Cookies — небольшие файлы, которые сайт сохраняет в браузере. Они помогают сайту работать
-                корректно и показывают нам, какие страницы полезны посетителям.
+                Cookies и localStorage — небольшие записи, которые сайт сохраняет в вашем браузере.
+                Ниже перечислено всё, что сохраняет этот сайт, и зачем.
             </p>
 
             <h2>Необходимые данные</h2>
@@ -146,29 +146,35 @@
                 <li><code>rostov-cookie-consent</code> — ваш выбор в уведомлении о cookies.</li>
             </ul>
 
+            <!-- @cookies-analytics -->
             <h2>Аналитические cookies</h2>
             <p>
-                Если вы нажмёте «Принять» в уведомлении, на сайте включится сервис Яндекс.Метрика
-                (ООО «Яндекс»). Он собирает обезличенную статистику: сколько людей посетили сайт,
-                какие страницы смотрели, с какого устройства. Подробнее — в
-                <a href="https://yandex.ru/legal/metrica_termsofuse/" target="_blank" rel="noopener noreferrer">условиях использования Яндекс.Метрики</a>.
-            </p>
-            <p>
-                Если вы выбрали «Только необходимые», Метрика не загружается.
+                Сейчас на сайте нет аналитики и рекламных счётчиков, поэтому уведомление о cookies не показывается:
+                спрашивать согласие не о чем. Если мастерская подключит Яндекс.Метрику, она будет включаться
+                только после вашего согласия в уведомлении.
             </p>
 
-            <h2>Как изменить выбор</h2>
+            <h2>Карта Яндекса</h2>
             <p>
-                <button type="button" class="btn btn-light" id="reset-cookie-choice">Сбросить мой выбор</button>
+                Карта на странице «Контакты» загружается только после нажатия кнопки «Показать карту».
+                В этот момент Яндекс получает ваш IP-адрес и может сохранить свои cookies — по
+                <a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener noreferrer">политике конфиденциальности Яндекса</a>.
+            </p>
+            <!-- /@cookies-analytics -->
+
+            <h2>Как изменить выбор или удалить данные</h2>
+            <p class="info-buttons">
+                <button type="button" class="btn btn-light" id="reset-cookie-choice">Сбросить выбор о cookies</button>
+                <button type="button" class="btn btn-light" data-clear-site-data>Удалить мои данные с этого устройства</button>
             </p>
             <p>
-                После сброса уведомление появится снова. Также можно удалить cookies и данные сайта
-                в настройках браузера — при этом очистятся корзина и избранное.
+                Вторая кнопка очищает корзину, избранное, список заказов и выбор о cookies в этом браузере.
+                Данные, которые вы отправили нам через формы, удалим по вашему запросу на e-mail — подробнее
+                в <a href="privacy.html">политике конфиденциальности</a>.
             </p>
 
-            <p>Подробнее об обработке данных — в <a href="privacy.html">политике конфиденциальности</a>.</p>
 
-            <p class="info-updated">Редакция от 23.10.2026.</p>
+            <p class="info-updated">Редакция от 02.11.2026.</p>
         </div>
 
     </main>
@@ -199,6 +205,7 @@
                     <a href="returns.html">Обмен и возврат</a>
                     <a href="privacy.html">Политика конфиденциальности</a>
                     <a href="cookies.html">Cookies</a>
+                    <a href="terms.html">Условия использования</a>
                 </div>
 
                 <div class="footer-column">
@@ -274,6 +281,10 @@
         <div class="orders-list" id="orders-list"></div>
 
         <p class="profile-note">
+            <button type="button" class="link-button" data-clear-site-data>Удалить корзину, избранное и заказы с этого устройства</button>
+        </p>
+
+        <p class="profile-note">
             Вопрос по заказу? Позвоните <a href="tel:+79999999999">+7 (999) 999-99-99</a>
             или напишите на <a href="mailto:email@finift.ru">email@finift.ru</a>.
         </p>
@@ -299,20 +310,20 @@
 
 <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Уведомление о cookies" hidden>
     <p>
-        Мы используем файлы cookies, чтобы сайт работал корректно, и сервис Яндекс.Метрика для статистики посещений.
+        Можно ли включить Яндекс.Метрику? Она собирает обезличенную статистику посещений. Корзина и избранное работают и без неё.
         Подробнее — в <a href="cookies.html">политике использования cookies</a>.
     </p>
     <div class="cookie-banner-actions">
-        <button type="button" class="btn btn-red" data-cookie="all">Принять</button>
-        <button type="button" class="btn btn-light" data-cookie="necessary">Только необходимые</button>
+        <button type="button" class="btn btn-blue" data-cookie="all">Принять</button>
+        <button type="button" class="btn btn-blue" data-cookie="necessary">Отказаться</button>
     </div>
 </div>
 <!-- /@modals -->
 
 <!-- @scripts -->
 <script src="site-data.js?v=b200cc3c"></script>
-<script src="site.js?v=91534f44"></script>
-<script src="cart-favorites.js?v=5a50323a"></script>
+<script src="site.js?v=e43fcd86"></script>
+<script src="cart-favorites.js?v=5f1b4ecc"></script>
 <script src="search.js?v=cb3e1e63"></script>
 <!-- /@scripts -->
 

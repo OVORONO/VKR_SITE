@@ -44,12 +44,18 @@ function Lower-First($text) {
     return $text.Substring(0, 1).ToLower() + $text.Substring(1)
 }
 
-# Подстановка {{ключ}} и условных блоков {{#ключ}}...{{/ключ}} (блок удаляется, если значение пустое)
+# Подстановка {{ключ}} и условных блоков: {{#ключ}}...{{/ключ}} — только если значение задано,
+# {{^ключ}}...{{/ключ}} — только если значение пустое
 function Fill-Template([string]$text, [hashtable]$vars) {
-    $text = [regex]::Replace($text, '(?s)\{\{#(\w+)\}\}(.*?)\{\{/\1\}\}', {
-        param($m)
-        if ($vars[$m.Groups[1].Value]) { return $m.Groups[2].Value } else { return '' }
-    })
+    # Несколько проходов — чтобы раскрылись и вложенные блоки
+    do {
+        $before = $text
+        $text = [regex]::Replace($text, '(?s)\{\{([#^])(\w+)\}\}(.*?)\{\{/\2\}\}', {
+            param($m)
+            $isSet = [bool]$vars[$m.Groups[2].Value]
+            if ($isSet -eq ($m.Groups[1].Value -eq '#')) { return $m.Groups[3].Value } else { return '' }
+        })
+    } while ($text -ne $before)
     return [regex]::Replace($text, '\{\{(\w+)\}\}', {
         param($m)
         $key = $m.Groups[1].Value
@@ -88,7 +94,7 @@ $config['siteUrl'] = $site.siteUrl.TrimEnd('/')
 $config['mapQueryEncoded'] = [Uri]::EscapeDataString($site.mapQuery)
 
 $partials = @{}
-foreach ($name in 'head', 'header', 'footer', 'modals', 'scripts', 'product-card', 'product-page', 'contact-cards', 'contact-map', 'requisites') {
+foreach ($name in 'head', 'header', 'footer', 'modals', 'scripts', 'product-card', 'product-page', 'contact-cards', 'contact-map', 'requisites', 'cookies-analytics') {
     $partials[$name] = Read-Text "partials/$name.html"
 }
 
@@ -115,6 +121,8 @@ function Get-ProductVars($p, $root, $loading) {
         loading     = $loading
         cardClass   = ''
         categoryName = $category.name
+        # «Ручная роспись» обещаем только там, где техника это подтверждает
+        handPainted = $p.technique -like '*роспись*'
     }
     return $vars
 }
@@ -272,7 +280,7 @@ $jsText = "/* Файл создан автоматически скриптом 
 Write-Text 'site-data.js' $jsText
 
 $today = (Get-Date).ToString('yyyy-MM-dd')
-$pages = @('', 'catalog.html', 'services.html', 'about.html', 'contacts.html', 'delivery.html', 'returns.html', 'privacy.html', 'cookies.html')
+$pages = @('', 'catalog.html', 'services.html', 'about.html', 'contacts.html', 'delivery.html', 'returns.html', 'privacy.html', 'cookies.html', 'terms.html', 'consent.html')
 $urls = $pages | ForEach-Object { "    <url><loc>$($config['siteUrl'])/$_</loc><lastmod>$today</lastmod></url>" }
 $urls += $products | ForEach-Object { "    <url><loc>$($config['siteUrl'])/products/$($_.id).html</loc><lastmod>$today</lastmod></url>" }
 Write-Text 'sitemap.xml' ("<?xml version=`"1.0`" encoding=`"UTF-8`"?>`n<urlset xmlns=`"http://www.sitemaps.org/schemas/sitemap/0.9`">`n" + ($urls -join "`n") + "`n</urlset>`n")
@@ -372,7 +380,7 @@ foreach ($file in $pageFiles) {
     $vars['ogType'] = if ($relative -like 'products*') { 'product' } else { 'website' }
     $vars['ogImage'] = $config['siteUrl'] + '/' + $(if ($html -match 'data-og-image="(.*?)"') { $Matches[1] } else { 'images/og-image.jpg' })
     $vars['localBusiness'] = if ($page -eq 'home' -or $page -eq 'contacts') { $localBusinessJson } else { '' }
-    foreach ($name in 'head', 'header', 'footer', 'modals', 'scripts', 'contact-cards', 'contact-map', 'requisites') {
+    foreach ($name in 'head', 'header', 'footer', 'modals', 'scripts', 'contact-cards', 'contact-map', 'requisites', 'cookies-analytics') {
         $block = [regex]::Replace($partials[$name], '\{\{active:(\w+)\}\}', {
             param($m)
             if ($m.Groups[1].Value -eq $page) { return ' class="active-link" aria-current="page"' } else { return '' }

@@ -1,10 +1,11 @@
-            <div class="map-box">
-                <iframe
-                    title="Яндекс Карта — мастерская «Ростовская эмаль», {{street}}"
-                    src="https://yandex.ru/map-widget/v1/?mode=search&amp;text={{mapQueryEncoded}}&amp;z=16"
-                    loading="lazy"
-                    allowfullscreen>
-                </iframe>
+            <!-- Карта Яндекса подгружается только по нажатию: до этого посетитель не передаёт Яндексу свой IP-адрес -->
+            <div class="map-box" data-map-src="https://yandex.ru/map-widget/v1/?mode=search&amp;text={{mapQueryEncoded}}&amp;z=16"
+                 data-map-title="Яндекс Карта — мастерская «Ростовская эмаль», {{street}}">
+                <div class="map-placeholder">
+                    <p class="map-address">{{city}}, {{street}}</p>
+                    <button type="button" class="btn btn-blue" data-show-map>Показать карту</button>
+                    <p class="map-note">Карта загрузится с сервера Яндекса — он получит ваш IP-адрес и может сохранить свои cookies.</p>
+                </div>
             </div>
             <p class="map-link">
                 <a href="https://yandex.ru/maps/?mode=search&amp;text={{mapQueryEncoded}}" target="_blank" rel="noopener noreferrer">Открыть в Яндекс Картах и построить маршрут</a>

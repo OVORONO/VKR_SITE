@@ -35,7 +35,7 @@ function respond($ok, $error = '', $extra = [])
     $title = $ok ? 'Спасибо! Заявка отправлена' : 'Не удалось отправить заявку';
     $text = $ok
         ? 'Мы свяжемся с вами в течение рабочего дня.'
-        : 'Проверьте, что заполнены имя, телефон и отмечено согласие, или позвоните нам.';
+        : 'Проверьте, что заполнены имя, телефон или e-mail и отмечено согласие, или позвоните нам.';
     echo '<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">'
         . '<title>' . $title . '</title><link rel="stylesheet" href="/fonts/fonts.css"><link rel="stylesheet" href="/common.css"></head>'
         . '<body><main class="info-page" style="padding:80px 20px;text-align:center"><h1>' . $title . '</h1>'
@@ -76,7 +76,10 @@ $phone = field('phone', 50);
 $email = field('email', 200);
 $consent = field('consent', 10);
 
-if ($name === '' || $phone === '' || $consent !== 'yes') {
+// Лишнего не требуем: для вопроса хватит телефона или e-mail, для заказа нужен телефон (его просит служба доставки)
+$isOrder = isset($_POST['items']);
+$hasContact = $isOrder ? $phone !== '' : ($phone !== '' || $email !== '');
+if ($name === '' || !$hasContact || $consent !== 'yes') {
     respond(false, 'required');
 }
 
@@ -169,6 +172,13 @@ function rateLimited()
     $dir = sys_get_temp_dir() . '/rostov-emal-send';
     if (!is_dir($dir) && !@mkdir($dir, 0700, true)) {
         return false; // нет доступа к временной папке — не мешаем отправке
+    }
+
+    // Отметки старше окна не нужны — удаляем, чтобы хэши IP не копились на сервере
+    foreach (glob($dir . '/*.json') ?: [] as $old) {
+        if (@filemtime($old) < time() - RATE_WINDOW) {
+            @unlink($old);
+        }
     }
 
     $file = $dir . '/' . hash('sha256', $_SERVER['REMOTE_ADDR'] ?? '') . '.json';

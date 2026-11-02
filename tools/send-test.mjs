@@ -81,6 +81,16 @@ check('без согласия → required', r.json?.error === 'required');
 r = await send({ ...base, email: 'bad@' });
 check('плохой e-mail → email', r.json?.error === 'email');
 
+// 4.1. лишнего не требуем: для вопроса хватит e-mail, для заказа нужен телефон
+r = await send({ name: 'Анна', email: 'anna@example.com', consent: 'yes', message: 'Вопрос' });
+check('вопрос только с e-mail принимается', r.json?.ok === true, JSON.stringify(r.json));
+r = await send({ name: 'Анна', consent: 'yes', message: 'Вопрос' });
+check('вопрос без телефона и e-mail → required', r.json?.error === 'required');
+r = await send({ name: 'Анна', email: 'anna@example.com', consent: 'yes', items: JSON.stringify([{ id: 'kartina-sova', qty: 1 }]) });
+check('заказ без телефона → required', r.json?.error === 'required');
+r = await send({ ...base, items: JSON.stringify([{ id: 'kartina-sova', qty: 1 }]) });
+check('заказ без e-mail принимается', r.json?.ok === true);
+
 // 5. внедрение заголовков письма
 r = await send({ ...base, email: 'a@b.cd\r\nBcc: victim@example.com' });
 check('перевод строки в e-mail отклонён', r.json?.error === 'email');

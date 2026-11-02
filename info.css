@@ -50,8 +50,14 @@
 }
 
 .info-text a {
-    color: var(--blue);
+    color: var(--blue-text);
     text-decoration: underline;
+}
+
+.info-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .info-updated {

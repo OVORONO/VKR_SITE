@@ -2,6 +2,10 @@
     const ROOT = document.body.dataset.root || '';
     const DATA = window.SITE_DATA || { config: {}, products: [] };
     const COOKIE_KEY = 'rostov-cookie-consent';
+    // Ключи корзины, избранного и заказов — те же, что в cart-favorites.js
+    const CART_STORAGE_KEY = 'rostov-cart';
+    const FAV_STORAGE_KEY = 'rostov-favorites';
+    const ORDERS_STORAGE_KEY = 'rostov-orders';
 
     function formatPrice(amount) {
         return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽';
@@ -143,6 +147,19 @@
         const burger = header.querySelector('.burger');
         const searchToggle = header.querySelector('.search-toggle');
 
+        // Esc закрывает мобильное меню и строку поиска и возвращает фокус на кнопку, которая их открыла
+        document.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape' || document.querySelector('dialog.site-modal[open]')) return;
+
+            if (header.classList.contains('menu-is-open') && burger) {
+                burger.click();
+                burger.focus();
+            } else if (header.classList.contains('search-is-open') && searchToggle) {
+                searchToggle.click();
+                searchToggle.focus();
+            }
+        });
+
         if (burger) {
             burger.addEventListener('click', () => {
                 const open = header.classList.toggle('menu-is-open');
@@ -203,7 +220,9 @@
         }
 
         if (consent === 'all') loadMetrika();
-        if (!banner || consent) return;
+        // Без аналитики сайт хранит только то, без чего не работают корзина и избранное, —
+        // спрашивать согласие не о чем, поэтому плашку показываем, только если подключена Метрика
+        if (!banner || consent || !DATA.config.yandexMetrikaId) return;
 
         banner.hidden = false;
         banner.addEventListener('click', (event) => {
@@ -271,6 +290,17 @@
             if (message && !firstInvalid) firstInvalid = field;
         });
 
+        // data-one-of="contact": телефон или e-mail — достаточно заполнить одно из полей группы
+        const groups = {};
+        form.querySelectorAll('[data-one-of]').forEach((field) => {
+            (groups[field.dataset.oneOf] = groups[field.dataset.oneOf] || []).push(field);
+        });
+        Object.values(groups).forEach((fields) => {
+            if (fields.some((field) => field.value.trim())) return;
+            setFieldError(fields[0], 'Укажите телефон или e-mail');
+            if (!firstInvalid) firstInvalid = fields[0];
+        });
+
         if (firstInvalid) firstInvalid.focus();
         return !firstInvalid;
     }
@@ -296,7 +326,9 @@
             ? [['email', (field) => field.value.trim(), 'Проверьте адрес почты']]
             : [
                 ['name', (field) => !field.value.trim(), 'Заполните это поле'],
-                ['phone', (field) => !field.value.trim(), 'Заполните это поле'],
+                // в форме вопроса хватает телефона или e-mail, в заказе телефон обязателен
+                ['phone', (field) => !field.value.trim() && (field.required || !(form.querySelector('[name="email"]') || field).value.trim()),
+                    (field) => (field.required ? 'Заполните это поле' : 'Укажите телефон или e-mail')],
                 ['consent', (field) => !field.checked, 'Нужно ваше согласие']
             ];
         let firstInvalid = null;
@@ -304,14 +336,14 @@
         checks.forEach(([name, isInvalid, message]) => {
             const field = form.querySelector('[name="' + name + '"]');
             if (!field || !isInvalid(field)) return;
-            setFieldError(field, message);
+            setFieldError(field, typeof message === 'function' ? message(field) : message);
             if (!firstInvalid) firstInvalid = field;
         });
 
         if (firstInvalid) {
             firstInvalid.focus();
         } else {
-            showMessage('Проверьте форму', 'Заполните имя и телефон, отметьте согласие на обработку данных и отправьте заявку ещё раз.');
+            showMessage('Проверьте форму', 'Заполните имя и телефон или e-mail, отметьте согласие на обработку данных и отправьте заявку ещё раз.');
         }
     }
 
@@ -415,6 +447,36 @@
         });
     }
 
+    /* ---------- Удаление данных и карта ---------- */
+
+    // «Удалить мои данные с этого устройства»: корзина, избранное, заказы и выбор о cookies
+    function bindDataRemoval() {
+        document.querySelectorAll('[data-clear-site-data]').forEach((button) => {
+            button.addEventListener('click', () => {
+                [CART_STORAGE_KEY, FAV_STORAGE_KEY, ORDERS_STORAGE_KEY, COOKIE_KEY].forEach(storageRemove);
+                showMessage('Данные удалены', 'Корзина, избранное, список заказов и ваш выбор о cookies удалены из этого браузера.');
+                document.dispatchEvent(new CustomEvent('site:data-cleared'));
+            });
+        });
+    }
+
+    // Карта Яндекса появляется только после нажатия «Показать карту»
+    function bindMap() {
+        document.querySelectorAll('[data-map-src]').forEach((box) => {
+            const button = box.querySelector('[data-show-map]');
+            if (!button) return;
+
+            button.addEventListener('click', () => {
+                const frame = document.createElement('iframe');
+                frame.src = box.dataset.mapSrc;
+                frame.title = box.dataset.mapTitle;
+                frame.allowFullscreen = true;
+                box.innerHTML = '';
+                box.appendChild(frame);
+            });
+        });
+    }
+
     window.SiteUI = {
         root: ROOT,
         data: DATA,
@@ -434,4 +496,6 @@
     bindHeader();
     bindCookieBanner();
     bindForms();
+    bindDataRemoval();
+    bindMap();
 })();

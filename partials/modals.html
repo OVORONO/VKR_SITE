@@ -43,6 +43,10 @@
         <div class="orders-list" id="orders-list"></div>
 
         <p class="profile-note">
+            <button type="button" class="link-button" data-clear-site-data>Удалить корзину, избранное и заказы с этого устройства</button>
+        </p>
+
+        <p class="profile-note">
             Вопрос по заказу? Позвоните <a href="tel:{{phoneHref}}">{{phone}}</a>
             или напишите на <a href="mailto:{{email}}">{{email}}</a>.
         </p>
@@ -68,11 +72,11 @@
 
 <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Уведомление о cookies" hidden>
     <p>
-        Мы используем файлы cookies, чтобы сайт работал корректно, и сервис Яндекс.Метрика для статистики посещений.
+        Можно ли включить Яндекс.Метрику? Она собирает обезличенную статистику посещений. Корзина и избранное работают и без неё.
         Подробнее — в <a href="{{root}}cookies.html">политике использования cookies</a>.
     </p>
     <div class="cookie-banner-actions">
-        <button type="button" class="btn btn-red" data-cookie="all">Принять</button>
-        <button type="button" class="btn btn-light" data-cookie="necessary">Только необходимые</button>
+        <button type="button" class="btn btn-blue" data-cookie="all">Принять</button>
+        <button type="button" class="btn btn-blue" data-cookie="necessary">Отказаться</button>
     </div>
 </div>

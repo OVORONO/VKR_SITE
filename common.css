@@ -6,6 +6,7 @@
 
 :root {
     --blue: #3570d6;          /* фон под белым текстом (контраст 4,7:1) */
+    --blue-text: #2b5fbf;     /* синий текст и ссылки на светлом фоне (6:1 на белом) */
     --blue-light: #5d93f2;    /* декоративные линии и акценты */
     --blue-soft: #e6ebff;
     --blue-pale: #f4f7ff;
@@ -72,8 +73,35 @@ h3,
 }
 
 :focus-visible {
-    outline: 2px solid var(--blue);
+    outline: 3px solid var(--blue);
     outline-offset: 2px;
+}
+
+/* На синем и тёмном фоне синяя рамка фокуса не видна — делаем её белой */
+.header :focus-visible,
+.footer :focus-visible,
+.hero :focus-visible,
+.contact-form :focus-visible,
+.contact-card :focus-visible,
+.about-blue-section :focus-visible,
+.catalog-banner:focus-visible,
+.toast :focus-visible {
+    outline-color: #ffffff;
+}
+
+/* Кнопка, которая выглядит как ссылка */
+.link-button {
+    padding: 0;
+    background: none;
+    color: var(--blue-text);
+    font: inherit;
+    text-align: left;
+    text-decoration: underline;
+}
+
+.form-hint {
+    font-size: 14px;
+    line-height: 1.45;
 }
 
 [hidden] {
@@ -348,7 +376,7 @@ h3,
     display: block;
     padding: 10px 12px;
     border-top: 1px solid #e6ebff;
-    color: var(--blue);
+    color: var(--blue-text);
     font-size: 13px;
     font-weight: 700;
 }
@@ -565,7 +593,7 @@ h3,
 }
 
 .breadcrumbs a {
-    color: var(--blue);
+    color: var(--blue-text);
 }
 
 .breadcrumbs a:hover {
@@ -573,7 +601,7 @@ h3,
 }
 
 .breadcrumbs span[aria-hidden] {
-    color: #b0b0b0;
+    color: #767676;
 }
 
 /* ФОРМЫ */
@@ -766,7 +794,10 @@ h3,
 
 .footer-demo {
     width: 100%;      /* плашка демо-версии — отдельной строкой */
-    color: #c9a24a;
+    padding-left: 10px;
+    border-left: 3px solid var(--gold);
+    color: #ffffff;
+    font-weight: 700;
 }
 
 /* ДЕКОРАТИВНЫЕ ЛИНИИ
@@ -1142,7 +1173,7 @@ body.modal-is-open {
 }
 
 .profile-note a {
-    color: var(--blue);
+    color: var(--blue-text);
     text-decoration: underline;
 }
 
@@ -1204,7 +1235,7 @@ body.modal-is-open {
 }
 
 .cookie-banner a {
-    color: var(--blue);
+    color: var(--blue-text);
     text-decoration: underline;
 }
 

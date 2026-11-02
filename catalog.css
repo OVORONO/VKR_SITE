@@ -114,7 +114,7 @@
 
 .filter-count {
     margin-left: 6px;
-    color: #8a8a8a;
+    color: #5f6470;
     font-size: 13px;
 }
 
@@ -126,7 +126,7 @@
     padding: 0;
     font: inherit;
     font-size: 15px;
-    color: var(--blue);
+    color: var(--blue-text);
     text-decoration: underline;
     cursor: pointer;
 }
@@ -183,7 +183,7 @@
 }
 
 .sort-list .sort-option.is-active {
-    color: var(--blue);
+    color: var(--blue-text);
     font-weight: 700;
 }
 
@@ -308,7 +308,7 @@
 }
 
 .catalog-seo a {
-    color: var(--blue);
+    color: var(--blue-text);
     text-decoration: underline;
 }
 

@@ -8,9 +8,9 @@
     <meta name="robots" content="noindex, nofollow">
 
     <!-- @head -->
-    <!-- Откуда странице можно загружать скрипты, стили и картинки: только с сайта и из Яндекс.Метрики.
+    <!-- Откуда странице можно загружать скрипты, стили и картинки: только с сайта и из Яндекс.Метрики, карту — с yandex.ru.
          Встроенные скрипты и стили запрещены — внедрённый код не запустится -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mc.yandex.ru https://yastatic.net; style-src 'self'; img-src 'self' data: https://mc.yandex.ru; font-src 'self'; connect-src 'self' https://mc.yandex.ru; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mc.yandex.ru https://yastatic.net; style-src 'self'; img-src 'self' data: https://mc.yandex.ru; font-src 'self'; connect-src 'self' https://mc.yandex.ru; frame-src https://yandex.ru; object-src 'none'; base-uri 'self'; form-action 'self'">
     <link rel="canonical" href="https://ovorono.github.io/VKR_SITE/checkout.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ростовская эмаль">
@@ -26,10 +26,10 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#3570d6">
     <link rel="preload" href="fonts/pt-sans-400-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="fonts/fonts.css?v=474ea6ac">
-    <link rel="stylesheet" href="common.css?v=15ae6d5c">
+    <link rel="stylesheet" href="fonts/fonts.css?v=ee530aba">
+    <link rel="stylesheet" href="common.css?v=4896d3f0">
     <!-- /@head -->
-    <link rel="stylesheet" href="info.css?v=f01173ce">
+    <link rel="stylesheet" href="info.css?v=bdfd9663">
 </head>
 <body data-page="checkout">
 
@@ -160,8 +160,8 @@
                         </label>
 
                         <label class="form-field">
-                            <span>E-mail *</span>
-                            <input type="email" name="email" data-label="E-mail" placeholder="example@mail.ru" autocomplete="email" required>
+                            <span>E-mail — для чека, необязательно</span>
+                            <input type="email" name="email" data-label="E-mail" placeholder="example@mail.ru" autocomplete="email">
                         </label>
                     </div>
                 </fieldset>
@@ -222,12 +222,16 @@
                 <label class="form-consent">
                     <input type="checkbox" name="consent" value="yes" required>
                     <span>
-                        Я согласен(на) на обработку персональных данных в соответствии
-                        с <a href="privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a>
-                        и ознакомлен(а) с <a href="delivery.html" target="_blank" rel="noopener">условиями доставки и оплаты</a>
-                        и <a href="returns.html" target="_blank" rel="noopener">правилами возврата</a>
+                        Даю <a href="consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a>
+                        для оформления и доставки заказа
                     </span>
                 </label>
+
+                <p class="checkout-note">
+                    Нажимая «Подтвердить заказ», вы принимаете <a href="terms.html" target="_blank" rel="noopener">условия продажи</a>,
+                    <a href="delivery.html" target="_blank" rel="noopener">условия доставки и оплаты</a> и
+                    <a href="returns.html" target="_blank" rel="noopener">правила возврата</a>.
+                </p>
 
                 <button type="submit" class="btn btn-red checkout-submit">Подтвердить заказ</button>
 
@@ -241,10 +245,15 @@
                 <h2>Ваш заказ</h2>
                 <div class="checkout-items" id="checkout-items"></div>
                 <div class="modal-total">
-                    <span>Итого:</span>
+                    <span>Товары:</span>
                     <strong id="checkout-total">0 ₽</strong>
                 </div>
-                <p class="checkout-note">Стоимость доставки рассчитаем после подтверждения заказа. Подарочная упаковка — бесплатно.</p>
+                <p class="checkout-note">
+                    Это сумма за изделия, упаковка и сертификат уже включены. Доставка оплачивается отдельно
+                    по тарифу службы — назовём её сумму до оплаты, и вы сможете отказаться от заказа.
+                    При оплате наложенным платежом служба доставки дополнительно берёт комиссию за перевод денег.
+                    Других сборов нет.
+                </p>
             </aside>
 
         </div>
@@ -277,6 +286,7 @@
                     <a href="returns.html">Обмен и возврат</a>
                     <a href="privacy.html">Политика конфиденциальности</a>
                     <a href="cookies.html">Cookies</a>
+                    <a href="terms.html">Условия использования</a>
                 </div>
 
                 <div class="footer-column">
@@ -352,6 +362,10 @@
         <div class="orders-list" id="orders-list"></div>
 
         <p class="profile-note">
+            <button type="button" class="link-button" data-clear-site-data>Удалить корзину, избранное и заказы с этого устройства</button>
+        </p>
+
+        <p class="profile-note">
             Вопрос по заказу? Позвоните <a href="tel:+79999999999">+7 (999) 999-99-99</a>
             или напишите на <a href="mailto:email@finift.ru">email@finift.ru</a>.
         </p>
@@ -377,20 +391,20 @@
 
 <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Уведомление о cookies" hidden>
     <p>
-        Мы используем файлы cookies, чтобы сайт работал корректно, и сервис Яндекс.Метрика для статистики посещений.
+        Можно ли включить Яндекс.Метрику? Она собирает обезличенную статистику посещений. Корзина и избранное работают и без неё.
         Подробнее — в <a href="cookies.html">политике использования cookies</a>.
     </p>
     <div class="cookie-banner-actions">
-        <button type="button" class="btn btn-red" data-cookie="all">Принять</button>
-        <button type="button" class="btn btn-light" data-cookie="necessary">Только необходимые</button>
+        <button type="button" class="btn btn-blue" data-cookie="all">Принять</button>
+        <button type="button" class="btn btn-blue" data-cookie="necessary">Отказаться</button>
     </div>
 </div>
 <!-- /@modals -->
 
 <!-- @scripts -->
 <script src="site-data.js?v=b200cc3c"></script>
-<script src="site.js?v=91534f44"></script>
-<script src="cart-favorites.js?v=5a50323a"></script>
+<script src="site.js?v=e43fcd86"></script>
+<script src="cart-favorites.js?v=5f1b4ecc"></script>
 <script src="search.js?v=cb3e1e63"></script>
 <!-- /@scripts -->
 <script src="checkout.js?v=06bf3065"></script>

@@ -7,9 +7,9 @@
     <meta name="description" content="Политика в отношении обработки персональных данных пользователей сайта мастерской «Ростовская эмаль» в соответствии с 152-ФЗ.">
 
     <!-- @head -->
-    <!-- Откуда странице можно загружать скрипты, стили и картинки: только с сайта и из Яндекс.Метрики.
+    <!-- Откуда странице можно загружать скрипты, стили и картинки: только с сайта и из Яндекс.Метрики, карту — с yandex.ru.
          Встроенные скрипты и стили запрещены — внедрённый код не запустится -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mc.yandex.ru https://yastatic.net; style-src 'self'; img-src 'self' data: https://mc.yandex.ru; font-src 'self'; connect-src 'self' https://mc.yandex.ru; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mc.yandex.ru https://yastatic.net; style-src 'self'; img-src 'self' data: https://mc.yandex.ru; font-src 'self'; connect-src 'self' https://mc.yandex.ru; frame-src https://yandex.ru; object-src 'none'; base-uri 'self'; form-action 'self'">
     <link rel="canonical" href="https://ovorono.github.io/VKR_SITE/privacy.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ростовская эмаль">
@@ -25,10 +25,10 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#3570d6">
     <link rel="preload" href="fonts/pt-sans-400-normal-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="fonts/fonts.css?v=474ea6ac">
-    <link rel="stylesheet" href="common.css?v=15ae6d5c">
+    <link rel="stylesheet" href="fonts/fonts.css?v=ee530aba">
+    <link rel="stylesheet" href="common.css?v=4896d3f0">
     <!-- /@head -->
-    <link rel="stylesheet" href="info.css?v=f01173ce">
+    <link rel="stylesheet" href="info.css?v=bdfd9663">
 </head>
 <body data-page="privacy">
 
@@ -137,19 +137,24 @@
             </p>
             <p>
                 Оператор персональных данных — продавец, указанный в разделе 9 «Контакты оператора».
-                Отправляя форму на Сайте, пользователь подтверждает, что ознакомился с политикой
-                и даёт согласие на обработку своих персональных данных на изложенных условиях.
+                Данные из форм обрабатываются на основании отдельного
+                <a href="consent.html">согласия на обработку персональных данных</a>, которое пользователь даёт,
+                отмечая галочку в форме.
             </p>
 
             <h2>2. Какие данные мы обрабатываем</h2>
             <ul>
-                <li>имя и фамилия;</li>
-                <li>номер телефона;</li>
-                <li>адрес электронной почты;</li>
-                <li>адрес доставки;</li>
+                <li>имя;</li>
+                <li>номер телефона и (или) адрес электронной почты — для вопроса достаточно одного из них;</li>
+                <li>адрес доставки — только если выбрана доставка;</li>
                 <li>сведения о заказе и текст сообщения, которые пользователь указывает сам;</li>
-                <li>технические данные: IP-адрес, сведения о браузере и устройстве, файлы cookies, данные о посещённых страницах (при согласии на аналитические cookies).</li>
+                <li>технические данные: IP-адрес, сведения о браузере и устройстве, файлы cookies, данные о посещённых страницах — только при согласии на аналитические cookies.</li>
             </ul>
+            <p>
+                Мы не запрашиваем дату рождения, паспортные данные, сведения о здоровье и другие данные,
+                которые не нужны для ответа на вопрос или доставки заказа. Сервер сайта хранит только
+                хэш IP-адреса и время отправки формы в течение 10 минут — для защиты от спама.
+            </p>
 
             <h2>3. Цели обработки</h2>
             <ul>
@@ -186,6 +191,8 @@
                 Данные передаются только в объёме, необходимом для исполнения заказа: службам доставки
                 (СДЭК, АО «Почта России»), платёжным сервисам, а также ООО «Яндекс» (сервис Яндекс.Метрика)
                 в обезличенном виде — при согласии пользователя на аналитические cookies.
+                Карта на странице «Контакты» загружается с сервера ООО «Яндекс» только после нажатия кнопки
+                «Показать карту»; при этом Яндекс получает IP-адрес посетителя.
                 Мы не продаём и не передаём персональные данные для рекламных рассылок третьих лиц.
             </p>
 
@@ -196,11 +203,23 @@
                 имеющих доступ к данным, использует защищённое соединение (HTTPS) и пароли.
             </p>
 
-            <h2>8. Права пользователя</h2>
+            <h2>8. Права пользователя и удаление данных</h2>
             <p>
                 Пользователь вправе получить сведения об обработке своих данных, потребовать их уточнения,
-                блокирования или уничтожения, а также отозвать согласие на обработку, направив запрос
-                на e-mail оператора. Запрос рассматривается в течение 10 рабочих дней.
+                блокирования или уничтожения, а также отозвать согласие на обработку, написав на e-mail оператора.
+                На запрос о данных оператор отвечает в течение 10 рабочих дней. После отзыва согласия или требования
+                удалить данные оператор прекращает обработку и уничтожает их в течение 30 дней, кроме сведений,
+                которые закон обязывает хранить (например, документы о покупке для бухгалтерского учёта).
+            </p>
+            <p>
+                Корзину, избранное и список заказов, сохранённые в браузере, можно удалить самостоятельно —
+                кнопкой «Удалить мои данные с этого устройства» на странице <a href="cookies.html">«Cookies»</a>.
+            </p>
+
+            <h2>8.1. Данные детей</h2>
+            <p>
+                Сайт не предназначен для детей, и мы сознательно не собираем их персональные данные.
+                Если вы родитель и узнали, что ребёнок отправил нам свои данные, напишите нам — мы их удалим.
             </p>
 
             <h2>9. Контакты оператора</h2>
@@ -211,7 +230,7 @@
             </div>
             <!-- /@requisites -->
 
-            <p class="info-updated">Редакция от 23.10.2026. Оператор вправе вносить изменения в политику; новая редакция действует с момента публикации на Сайте.</p>
+            <p class="info-updated">Редакция от 02.11.2026. Оператор вправе вносить изменения в политику; новая редакция действует с момента публикации на Сайте.</p>
         </div>
 
     </main>
@@ -242,6 +261,7 @@
                     <a href="returns.html">Обмен и возврат</a>
                     <a href="privacy.html">Политика конфиденциальности</a>
                     <a href="cookies.html">Cookies</a>
+                    <a href="terms.html">Условия использования</a>
                 </div>
 
                 <div class="footer-column">
@@ -317,6 +337,10 @@
         <div class="orders-list" id="orders-list"></div>
 
         <p class="profile-note">
+            <button type="button" class="link-button" data-clear-site-data>Удалить корзину, избранное и заказы с этого устройства</button>
+        </p>
+
+        <p class="profile-note">
             Вопрос по заказу? Позвоните <a href="tel:+79999999999">+7 (999) 999-99-99</a>
             или напишите на <a href="mailto:email@finift.ru">email@finift.ru</a>.
         </p>
@@ -342,20 +366,20 @@
 
 <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Уведомление о cookies" hidden>
     <p>
-        Мы используем файлы cookies, чтобы сайт работал корректно, и сервис Яндекс.Метрика для статистики посещений.
+        Можно ли включить Яндекс.Метрику? Она собирает обезличенную статистику посещений. Корзина и избранное работают и без неё.
         Подробнее — в <a href="cookies.html">политике использования cookies</a>.
     </p>
     <div class="cookie-banner-actions">
-        <button type="button" class="btn btn-red" data-cookie="all">Принять</button>
-        <button type="button" class="btn btn-light" data-cookie="necessary">Только необходимые</button>
+        <button type="button" class="btn btn-blue" data-cookie="all">Принять</button>
+        <button type="button" class="btn btn-blue" data-cookie="necessary">Отказаться</button>
     </div>
 </div>
 <!-- /@modals -->
 
 <!-- @scripts -->
 <script src="site-data.js?v=b200cc3c"></script>
-<script src="site.js?v=91534f44"></script>
-<script src="cart-favorites.js?v=5a50323a"></script>
+<script src="site.js?v=e43fcd86"></script>
+<script src="cart-favorites.js?v=5f1b4ecc"></script>
 <script src="search.js?v=cb3e1e63"></script>
 <!-- /@scripts -->
 

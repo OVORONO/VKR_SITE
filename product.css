@@ -62,7 +62,7 @@
 
 .product-stock {
     font-size: 14px;
-    color: #2f8a4c;
+    color: #23763d;
     margin-bottom: 26px;
 }
 
@@ -132,7 +132,7 @@
 }
 
 .product-specs a {
-    color: var(--blue);
+    color: var(--blue-text);
     text-decoration: underline;
 }
 
@@ -158,7 +158,7 @@
 }
 
 .product-description a {
-    color: var(--blue);
+    color: var(--blue-text);
     text-decoration: underline;
 }
 

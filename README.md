@@ -59,6 +59,8 @@
 | Что | Где |
 | --- | --- |
 | Страницы | `index.html`, `catalog.html`, `services.html`, `about.html`, `contacts.html`, `checkout.html`, `search.html`, информационные страницы, `404.html` |
+| Юридические страницы | `privacy.html` (политика), `consent.html` (отдельное согласие по 152-ФЗ), `terms.html` (условия), `returns.html`, `delivery.html`, `cookies.html` (с кнопкой удаления своих данных) |
+| Шрифты | `fonts/` — Montserrat Alternates и PT Sans, лицензия SIL OFL 1.1, тексты лицензий лежат рядом |
 | Страницы товаров | `products/*.html` (генерируются) |
 | Стили | `common.css` (общие блоки) и по файлу на страницу |
 | Скрипты | `site.js` (окна, меню, cookies, формы), `cart-favorites.js`, `search.js`, `catalog-filters.js`, `checkout.js`, `product.js` |
